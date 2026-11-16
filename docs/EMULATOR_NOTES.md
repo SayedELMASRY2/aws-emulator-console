@@ -182,9 +182,30 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Access entries / IAM authenticator RBAC management.
 - EKS Insights.
 
+## AWS Lambda
+
+**Works**
+
+- `CreateFunction`, `GetFunction`, `ListFunctions`, `DeleteFunction`.
+- `UpdateFunctionCode`, `UpdateFunctionConfiguration`.
+- `Invoke` with synchronous execution, payload streaming, and log tailing (`LogType: "Tail"`).
+- Supported runtimes: Python (`python3.13`, `python3.12`, `python3.11`), Node.js (`nodejs22.x`, `nodejs20.x`).
+- Function lifecycle state transitions from `Pending` (while runtime container is provisioned) to `Active`.
+- Presigned S3 zip code download location in `GetFunction`.
+
+**Real work**
+
+- Function code actually executes locally in an isolated container/process environment.
+- Returns real output payloads, status codes, and execution logs.
+
+**Not implemented**
+
+- Lambda Layers.
+- Code Signing configurations.
+- Serverless Application Repository.
+
 ## Other services (found while building the basic pages)
 
-- **Lambda:** executes function code.
 - **Athena:** runs SQL over S3 data and catalog tables.
 - **ECS:** pulls real container images, which needs internet access.
 - **MSK:** broker hostnames don't resolve.

@@ -58,7 +58,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **Amazon ECS** | ✅ Full console | Clusters, Create cluster, cluster tabs (Services, Tasks, Infrastructure, Metrics), Create service (Fargate/EC2, networking, target groups), Run task, Task definitions with form and JSON editor |
 | **Amazon ECR** | ✅ Full console | Repositories, Create repository (tag immutability, scan on push, encryption), View push commands, Images table, Lifecycle policy editor with presets |
 | **Amazon EKS** | ✅ Full console | Kubernetes clusters, Create cluster (K8s 1.31, subnets, public/private API endpoints), kubeconfig generation, Node groups (scaling, capacity, instance types), Add-ons installation |
-| MSK, ElastiCache, Redshift, DocumentDB, Neptune, Athena, Kinesis, Lambda, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **AWS Lambda** | ✅ Full console | Functions list, Create function (Python & Node.js runtimes), in-browser Code editor with live Deploy, Test event runner with live execution & logs, environment variables |
+| MSK, ElastiCache, Redshift, DocumentDB, Neptune, Athena, Kinesis, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -93,6 +94,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>EKS: clusters with control plane endpoint</b><br><img src="docs/images/eks-clusters.png" alt="EKS clusters"></td>
 <td><b>EKS: cluster detail with node groups & add-ons</b><br><img src="docs/images/eks-cluster-detail.png" alt="EKS cluster detail"></td>
+</tr>
+<tr>
+<td><b>Lambda: functions list</b><br><img src="docs/images/lambda-functions.png" alt="Lambda functions"></td>
+<td><b>Lambda: code editor & test events</b><br><img src="docs/images/lambda-function-detail.png" alt="Lambda function detail"></td>
 </tr>
 </table>
 

@@ -18,10 +18,11 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Amazon ECS | Full | `#/ecs/clusters` | `web/src/pages/ecs/` |
 | Amazon ECR | Full | `#/ecr/repositories` | `web/src/pages/ecr/` |
 | Amazon EKS | Full | `#/eks/clusters` | `web/src/pages/eks/` |
+| AWS Lambda | Full | `#/lambda/functions` | `web/src/pages/lambda/` |
 | MSK (Kafka) | Basic | `/legacy/#/kafka` | `static/pages/kafka.js` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Athena, Kinesis | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| Lambda, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -228,6 +229,35 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created managed node group `system-pool`.
 - Installed operational add-on `vpc-cni`.
 - Verified `kubeconfig` command generation.
+- Captured screenshots in headless Chrome.
+
+## AWS Lambda
+
+**Pages**
+
+- **Functions:**
+  - Functions list with runtime, handler, memory, timeout, state (with `Pending`/`Active` polling indicator), code size, and last modified.
+  - Create function: Author from scratch, function name, runtime selection (`python3.13`, `python3.12`, `nodejs22.x`, etc.), architecture, IAM execution role, starter code editor, memory and timeout sliders, and environment variables.
+  - Function detail: Overview container with ARN, handler, memory, timeout, and last modified.
+  - Delete function modal.
+- **Code tab:**
+  - In-browser code source editor (`index.py` / `index.mjs`) with tab indentation support.
+  - "Deploy" button that packages code and updates runtime function code in place.
+- **Test tab:**
+  - Test event editor with quick event presets (Hello World, API Gateway proxy, SQS message).
+  - "Test" invoke execution trigger with real payload execution.
+  - Live execution results panel: response status code, round-trip duration in ms, parsed response payload, and decoded function execution logs.
+- **Configuration tab:**
+  - General configuration overview (memory, timeout, handler, ephemeral storage, role).
+  - Environment variables key-value table.
+- **Unsupported pages:** Code signing configurations, Layers, Applications (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created function `process-orders` with Python 3.12.
+- Verified function state transition from `Pending` to `Active`.
+- Deployed code and verified in-memory execution.
+- Invoked function with test event and verified live JSON payload response (`200 OK`).
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services
