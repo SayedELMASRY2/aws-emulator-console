@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emulator Console</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="side" id="side">
+      <a class="brand" href="/" style="text-decoration:none"><span class="logo">◆</span> Emulator Console</a>
+      <a href="/" style="display:block;margin:0 16px 10px;font-size:12px;color:#7b96ff">← Back to the full console</a>
+      <input class="input search" id="navsearch" placeholder="Search services…" aria-label="Search services">
+      <nav class="nav" id="nav"></nav>
+    </aside>
+    <div class="content">
+      <div class="topbar">
+        <button class="btn ghost menu" id="menu" aria-label="Menu">☰</button>
+        <div class="status" id="status"><span class="dot"></span><span>Checking emulator…</span></div>
+        <div class="topinfo muted" id="topinfo"></div>
+      </div>
+      <main class="main" id="main"></main>
+    </div>
+  </div>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script src="core.js"></script>
+  <script src="pages/overview.js"></script>
+  <script src="pages/s3.js"></script>
+  <script src="pages/dynamodb.js"></script>
+  <script src="pages/glue.js"></script>
+  <script src="pages/ec2.js"></script>
+  <script src="pages/containers.js"></script>
+  <script src="pages/kafka.js"></script>
+  <script src="pages/databases.js"></script>
+  <script src="pages/extras.js"></script>
+  <script src="pages/explorer.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

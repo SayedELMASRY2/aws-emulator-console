@@ -1,0 +1,22 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Node / build output
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+
+# Runtime
+logs/
+*.log
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Local agent settings (launch.json is shared on purpose)
+.claude/settings.local.json

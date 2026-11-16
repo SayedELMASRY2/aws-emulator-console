@@ -1,0 +1,129 @@
+# Emulator notes
+
+Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe a service before building pages for it (see [ADDING_A_SERVICE.md](ADDING_A_SERVICE.md)), and update this file with what you find.
+
+## General
+
+- **Endpoint:** `https://127.0.0.1:9297`, with a self-signed CA at `~/.aws/emulator/9297/ca.pem`.
+- **Keys:** per-run keys are written to `~/.aws/emulator/9297/emulator_credentials`. SigV4 is required by default (`--auth on`).
+- **State lives only in memory.** A restart wipes everything, and new keys are written.
+- **Not-implemented operations** return HTTP 501 with code `NotImplemented` ("scaffolded but not implemented"). The console turns these into an explanation (`errHeader` in `common.tsx`). In menus, disable such actions with a `disabledReason`.
+- **Account and Region:** account `000000000000`, Region `us-east-1`.
+- **IAM is enforced** for work the emulator runs on your behalf (Glue jobs and crawlers, RDS exports and others). Those calls run as the resource's role, which needs real permissions. The managed policies `AWSGlueServiceRole` and `AmazonS3FullAccess` exist and can be attached.
+- **Error messages can mislead.** A Glue job whose role can't read the script reports "Script file doesn't exist" instead of AccessDenied.
+
+## S3
+
+**Works**
+
+- Buckets, objects, versions and presigned URLs. Presigned URLs need SigV4 (`signature_version="s3v4"`).
+- Replication between buckets.
+- Event notifications to SQS (tested; SNS and Lambda not yet). The destination must allow S3 to send to it, otherwise you get "Unable to validate destination".
+- Lifecycle, inventory, Intelligent-Tiering and Object Lock configurations are stored and returned. Whether lifecycle rules actually act on objects hasn't been checked.
+
+**Not implemented:** S3 Control (Access Points, Batch Operations, account Block Public Access, Storage Lens), and S3 Select.
+
+## DynamoDB
+
+**Works**
+
+- Tables, items, PartiQL, backups and restore.
+- PITR, streams, and global table replicas.
+- Auto scaling through Application Auto Scaling.
+- CloudWatch metrics.
+- Export to S3, which writes real files; the encryption value must be `AES256`, not `SSE_S3`.
+- Import from S3.
+- Index names must be at least 3 characters.
+
+**DAX:** creating a subnet group fails with "Some input subnets are invalid", so clusters can't be created.
+
+## EC2, ELB, Auto Scaling
+
+**Works**
+
+- The instance API and lifecycle. Instances aren't real machines: there's no SSH and no guest OS.
+- Security groups, key pairs, EIPs, ENIs, volumes, snapshots and launch templates.
+- ALBs listen for real on `127.0.0.1:<port>` and answer HTTP. Fixed-response rules work; forward needs a real target or returns 502.
+- Auto Scaling groups launch instances.
+
+**User data**
+
+- boto3 base64-encodes `RunInstances` UserData itself, so pass raw text.
+- Launch template UserData must already be encoded.
+- Pass `ModifyInstanceAttribute` UserData and `ImportKeyPair` key material as plain text.
+
+**Not implemented:** CreateImage, CopyImage, ModifySnapshotAttribute, GetLaunchTemplateData, and PutScheduledUpdateGroupAction.
+
+**Bugs**
+
+- RunInstances creates only the root volume, sized from the AMI, and ignores extra block devices.
+- CreateVolume from a snapshot returns `InvalidSnapshot.NotFound`.
+
+**No CloudWatch metrics** are published for instances.
+
+## RDS and Aurora
+
+**Real database servers on `127.0.0.1:<port>`**
+
+- MySQL (8.4.4), MariaDB (11.4.4), PostgreSQL, and Aurora MySQL/PostgreSQL endpoints all speak their wire protocol.
+- Oracle, SQL Server and Db2 are modeled at the API level only.
+
+**Works**
+
+- Create, modify, stop, start, reboot (instances) and delete.
+- Read replicas and promote; cluster readers and failover.
+- Snapshots: create, copy, restore. Blue/Green deployments. Global clusters.
+- Subnet groups; parameter groups (including value edits and reset); option groups (ModifyOptionGroup).
+- Proxies (they become `available` after a moment, and targets can only be registered then).
+- Event subscriptions (the SNS topic must exist). Log files, through DescribeDBLogFiles and DownloadDBLogFilePortion.
+- `StartExportTask` writes export metadata files to S3. It needs:
+  - A role trusted by `export.rds.amazonaws.com`, with S3 write access to the bucket.
+  - A KMS key.
+
+**Not implemented**
+
+- RestoreDBInstanceToPointInTime and RestoreDBClusterToPointInTime.
+- ModifyDBSnapshotAttribute and DescribeDBSnapshotAttributes (sharing).
+- DescribeDBInstanceAutomatedBackups and DescribeReservedDBInstances.
+- DescribeDBClusterEndpoints and CreateDBClusterEndpoint.
+- DescribeOptionGroupOptions, ModifyDBRecommendation, and DescribeDBProxyEndpoints.
+
+**Other limits**
+
+- `RebootDBCluster` is rejected for Aurora PostgreSQL. Reboot the instances instead.
+- There are no CloudWatch metrics for RDS.
+
+## AWS Glue
+
+**Crawlers run for real.** They read S3 (CSV and JSON tested), infer the schema, create tables and add partitions from `key=value/` folders. GetCrawlerMetrics reports results; ListCrawls isn't implemented.
+
+**Jobs run for real** (`glueetl` and `pythonshell`).
+
+- Scripts run with `awsglue`, `GlueContext`, `getResolvedOptions`, `Job`, `create_dynamic_frame.from_catalog`, and boto3 (as the job's role).
+- `write_dynamic_frame` can write CSV or JSON, but **not Parquet** ("UnwritableFormat").
+- `pandas` isn't available.
+- Failures show up as `ErrorMessage` on the run, for example `ValueError: boom`. Nothing is sent to CloudWatch Logs.
+
+**Works**
+
+- Data quality: rulesets, evaluation runs and results with rule-level metrics.
+- Athena can query catalog tables (`SELECT * FROM "db"."table"`).
+- Workflows: runs start the **start trigger's** actions.
+
+**Conditional triggers** are stored but never fire, both inside and outside workflows. Schedules are stored but don't fire on the cron clock.
+
+**Interactive sessions** are recorded, but statements end with `RuntimeUnavailable`, so there's no Spark runtime for notebooks.
+
+**Not implemented**
+
+- ListSchemas, DeleteSchema and DeleteRegistry.
+- TestConnection and StopSession.
+- GetUserDefinedFunctions and ListDataQualityResults.
+- DescribeIntegrations, ListUsageProfiles, GetCatalogs and ListDevEndpoints.
+
+## Other services (found while building the basic pages)
+
+- **Lambda:** executes function code.
+- **Athena:** runs SQL over S3 data and catalog tables.
+- **ECS:** pulls real container images, which needs internet access.
+- **MSK:** broker hostnames don't resolve.
