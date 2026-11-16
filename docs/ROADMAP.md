@@ -14,15 +14,16 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 4 | Aurora and RDS | ✅ | |
 | 5 | AWS Glue | ✅ | |
 | 6 | Amazon ECS | ✅ | Clusters, task definitions, services, tasks |
-| 7 | Containers: ECR, EKS | 🔜 | ECR private registries & images, EKS K8s clusters |
-| 8 | Amazon MSK (Kafka) | ⬜ | Broker hostnames don't resolve, so check what can be shown |
-| 8 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
-| 9 | Lambda | ⬜ | Code runs for real, so an inline code editor plus Test events is high value |
-| 10 | Athena | ⬜ | SQL runs for real, so build a query editor with the catalog tree |
-| 11 | SQS, SNS, EventBridge, Step Functions | ⬜ | Send/receive message pages, rules, state machine graph |
-| 12 | IAM, Secrets Manager, Parameter Store, KMS | ⬜ | IAM matters because the emulator enforces it |
-| 13 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
-| 14 | Kinesis, Firehose and others the emulator supports | ⬜ | Check `GET /api/meta/services` and probe |
+| 7 | Amazon ECR | ✅ | Repositories, push commands, images, lifecycle policies |
+| 8 | Amazon EKS | 🔜 | Kubernetes clusters, node groups, add-ons |
+| 9 | Amazon MSK (Kafka) | ⬜ | Broker hostnames don't resolve, so check what can be shown |
+| 10 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
+| 11 | Lambda | ⬜ | Code runs for real, so an inline code editor plus Test events is high value |
+| 12 | Athena | ⬜ | SQL runs for real, so build a query editor with the catalog tree |
+| 13 | SQS, SNS, EventBridge, Step Functions | ⬜ | Send/receive message pages, rules, state machine graph |
+| 14 | IAM, Secrets Manager, Parameter Store, KMS | ⬜ | IAM matters because the emulator enforces it |
+| 15 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
+| 16 | Kinesis, Firehose and others the emulator supports | ⬜ | Check `GET /api/meta/services` and probe |
 
 ## Per-service scope
 

@@ -37,7 +37,8 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **Aurora and RDS** | ✅ كونسول كامل: Create database لـ 8 engines، وModify، والـ replicas، والـ failover، والـ snapshots، والـ proxies، والـ parameter groups |
 | **AWS Glue** | ✅ كونسول كامل: الكتالوج، والـ crawlers، وجداول بتعرض بياناتها عن طريق Athena، وData quality، وScript editor jobs، والـ triggers، والـ workflows بالرسمة |
 | **Amazon ECS** | ✅ كونسول كامل: الكلاسترات، وإدارتها بـ Fargate وEC2، والـ Task definitions بمحرر Form وJSON، وتشغيل الـ Services وTasks مع ربط الـ Load Balancer والشبكات |
-| باقي الخدمات (ECR وEKS وMSK وLambda وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **Amazon ECR** | ✅ كونسول كامل: مستودعات الـ Docker/OCI، وخيارات الـ Tag immutability، وScan on push، ومحرر الـ Lifecycle policies، وأوامر الـ Push للـ CLI |
+| باقي الخدمات (EKS وMSK وLambda وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 

@@ -16,7 +16,8 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Aurora and RDS | Full | `#/rds/dashboard` | `web/src/pages/rds/` |
 | AWS Glue | Full | `#/glue/getting-started` | `web/src/pages/glue/` |
 | Amazon ECS | Full | `#/ecs/clusters` | `web/src/pages/ecs/` |
-| ECR, EKS | Basic | `/legacy/#/ecr` … | `static/pages/containers.js` |
+| Amazon ECR | Full | `#/ecr/repositories` | `web/src/pages/ecr/` |
+| EKS | Basic | `/legacy/#/eks` … | `static/pages/containers.js` |
 | MSK (Kafka) | Basic | `/legacy/#/kafka` | `static/pages/kafka.js` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Athena, Kinesis | Basic | `/legacy/#/...` | `static/pages/extras.js` |
@@ -175,6 +176,33 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created service `web-svc` with awsvpc networking.
 - Ran standalone task and verified status progression.
 - Swept all ECS routes in headless Chrome and captured screenshots.
+
+## Amazon ECR
+
+**Pages**
+
+- **Repositories:**
+  - Repositories list with URI, tag immutability, scan on push, encryption type, and created at.
+  - Create repository: visibility settings (private), repository name, tag immutability toggle, scan on push toggle, encryption type (AES-256 or KMS).
+  - Repository detail: Overview summary with URI and ARN copy buttons, Images tab, Lifecycle policy tab.
+  - View push commands modal with step-by-step Docker CLI commands for login, build, tag, and push.
+  - Delete repository modal with repository name confirmation.
+- **Images:**
+  - Image list with image tags, digest (with copy button), size, and pushed date.
+  - Delete image action via `BatchDeleteImage`.
+- **Lifecycle policy:**
+  - Rules list viewing parsed rules (rule priority, description, match criteria, expire action).
+  - Lifecycle policy editor with JSON editor, plus quick presets for expiring untagged images or keeping last N images.
+  - Delete lifecycle policy.
+- **Unsupported pages:** Registry permissions, Replication, Pull through cache, Public repositories (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created repository `api-backend` with tag immutability and scan-on-push.
+- Configured multi-rule lifecycle policy and verified JSON round-trip.
+- Verified Docker push commands generation.
+- Verified `DescribeImages` and `BatchDeleteImage`.
+- Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services
 

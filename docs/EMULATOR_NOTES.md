@@ -146,6 +146,25 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Account settings management (`PutAccountSetting`).
 - Container Insights CloudWatch metrics.
 
+## Amazon ECR
+
+**Works**
+
+- `CreateRepository`, `DescribeRepositories`, `DeleteRepository`.
+- `repositoryUri` returns `127.0.0.1:<port>/<repoName>`.
+- `imageTagMutability`: `MUTABLE` or `IMMUTABLE`.
+- `imageScanningConfiguration`: `scanOnPush` toggle.
+- `encryptionConfiguration`: `AES256` or `KMS`.
+- `PutLifecyclePolicy`, `GetLifecyclePolicy`, `DeleteLifecyclePolicy` with full rule JSON schemas.
+- `DescribeImages`, `ListImages`, `BatchDeleteImage`.
+
+**Not implemented**
+
+- Public registries (gallery.ecr.aws).
+- Cross-region replication.
+- Pull through cache.
+- Registry permissions.
+
 ## Other services (found while building the basic pages)
 
 - **Lambda:** executes function code.
