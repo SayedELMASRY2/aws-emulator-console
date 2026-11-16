@@ -31,7 +31,7 @@ EMU_HOST = os.environ.get("EMULATOR_HOST", "127.0.0.1")
 EMU_ENDPOINT = f"https://{EMU_HOST}:{EMU_PORT}"
 EMU_DIR = Path.home() / ".aws" / "emulator" / str(EMU_PORT)
 REGION = os.environ.get("EMULATOR_REGION", "us-east-1")
-UI_PORT = int(os.environ.get("UI_PORT", "8297"))
+UI_PORT = int(os.environ.get("UI_PORT") or os.environ.get("PORT") or "8297")
 STATIC = Path(__file__).parent / "static"
 WEB_DIST = Path(__file__).parent / "web" / "dist"
 
