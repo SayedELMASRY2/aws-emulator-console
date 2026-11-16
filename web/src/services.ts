@@ -18,7 +18,7 @@ export const SERVICES: Service[] = [
   L("kinesis", "Kinesis Data Streams", "Analytics", "/kinesis", "Real-time data streams"),
   { id: "ec2", name: "EC2", group: "Compute", href: "#/ec2/dashboard", description: "Virtual servers in the cloud" },
   L("lambda", "Lambda", "Compute", "/lambda", "Run code without thinking about servers"),
-  L("ecs", "ECS", "Containers", "/ecs", "Run containers"),
+  { id: "ecs", name: "ECS", group: "Containers", href: "#/ecs/clusters", description: "Highly secure, reliable, and scalable way to run containers" },
   L("ecr", "ECR", "Containers", "/ecr", "Container registry"),
   L("eks", "EKS", "Containers", "/eks", "Managed Kubernetes"),
   L("sqs", "SQS", "Application Integration", "/sqs", "Message queues"),

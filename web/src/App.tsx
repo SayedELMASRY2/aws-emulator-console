@@ -15,6 +15,7 @@ import DynamoRoutes, { DDB_NAV } from "./pages/dynamodb/routes";
 import Ec2Routes, { EC2_NAV } from "./pages/ec2/routes";
 import RdsRoutes, { RDS_NAV } from "./pages/rds/routes";
 import GlueRoutes, { GLUE_NAV } from "./pages/glue/routes";
+import EcsRoutes, { ECS_NAV } from "./pages/ecs/routes";
 
 // Pages set their breadcrumbs through this context.
 type Crumb = BreadcrumbGroupProps.Item;
@@ -31,6 +32,7 @@ function sideNavFor(path: string): { header: SideNavigationProps.Header; items: 
   if (path.startsWith("/ec2")) return EC2_NAV;
   if (path.startsWith("/rds")) return RDS_NAV;
   if (path.startsWith("/glue")) return GLUE_NAV;
+  if (path.startsWith("/ecs")) return ECS_NAV;
   return {
     header: { text: "Emulator Console", href: "#/" },
     items: [
@@ -113,6 +115,7 @@ function Shell() {
             <Route path="/ec2/*" element={<Ec2Routes />} />
             <Route path="/rds/*" element={<RdsRoutes />} />
             <Route path="/glue/*" element={<GlueRoutes />} />
+            <Route path="/ecs/*" element={<EcsRoutes />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         }

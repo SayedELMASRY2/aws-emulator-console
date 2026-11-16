@@ -15,7 +15,8 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | EC2 (+ ELB, Auto Scaling) | Full | `#/ec2/dashboard` | `web/src/pages/ec2/` |
 | Aurora and RDS | Full | `#/rds/dashboard` | `web/src/pages/rds/` |
 | AWS Glue | Full | `#/glue/getting-started` | `web/src/pages/glue/` |
-| ECS, ECR, EKS | Basic | `/legacy/#/ecs` … | `static/pages/containers.js` |
+| Amazon ECS | Full | `#/ecs/clusters` | `web/src/pages/ecs/` |
+| ECR, EKS | Basic | `/legacy/#/ecr` … | `static/pages/containers.js` |
 | MSK (Kafka) | Basic | `/legacy/#/kafka` | `static/pages/kafka.js` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Athena, Kinesis | Basic | `/legacy/#/...` | `static/pages/extras.js` |
@@ -144,6 +145,36 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - **Workflow:** start trigger, then the job.
 
 **Bug fixed:** changing tabs in the job editor remounted the page and lost script edits.
+
+## Amazon ECS
+
+**Pages**
+
+- **Clusters:**
+  - Cluster list with active services, running tasks, pending tasks, and container instances.
+  - Create cluster (Fargate / Fargate Spot capacity providers, Container Insights toggle).
+  - Cluster detail: Overview container, Services tab, Tasks tab, Infrastructure tab (capacity providers), Metrics tab.
+  - Delete cluster confirmation modal.
+- **Services:**
+  - Create service: task definition picker, desired count, Fargate/EC2 launch type, VPC/Subnets/Security groups networking, optional ELB target group binding.
+  - Service detail: summary, deployments table, events table, network configuration.
+  - Scale desired count modal and delete service modal.
+- **Tasks:**
+  - Run standalone task: cluster, task definition, count, launch type, VPC networking.
+  - Task detail: container states, exit codes, port mappings, network bindings, and stop task action.
+- **Task definitions:**
+  - Task definition family/revision list.
+  - Create task definition: Form editor (CPU, Memory, container specs, port mappings, env vars) and full JSON editor.
+  - Task definition detail: revision status, launch types, container definitions, deregister revision.
+- **Unsupported pages:** Capacity providers, Service Connect, Account settings (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created cluster `prod-cluster` with Fargate providers.
+- Registered task definition `nginx-web` with port mappings.
+- Created service `web-svc` with awsvpc networking.
+- Ran standalone task and verified status progression.
+- Swept all ECS routes in headless Chrome and captured screenshots.
 
 ## Known gaps in the full-console services
 

@@ -121,6 +121,31 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - GetUserDefinedFunctions and ListDataQualityResults.
 - DescribeIntegrations, ListUsageProfiles, GetCatalogs and ListDevEndpoints.
 
+## Amazon ECS
+
+**Works**
+
+- `CreateCluster`, `DescribeClusters`, `ListClusters`, `DeleteCluster`.
+- Default capacity providers `FARGATE` and `FARGATE_SPOT` are supported.
+- `RegisterTaskDefinition`, `DescribeTaskDefinition`, `ListTaskDefinitions`, `DeregisterTaskDefinition`.
+- Multiple container definitions, port mappings, CPU/memory constraints, and environment variables.
+- `CreateService`, `DescribeServices`, `UpdateService` (desiredCount scaling), `DeleteService`.
+- `RunTask`, `DescribeTasks`, `ListTasks`, `StopTask`.
+- Awsvpc networking mode with VPC subnets and security groups.
+- Load balancer integration with target groups.
+
+**Real work**
+
+- Tasks actually run: the emulator pulls container images from registries (Docker Hub, public ECR), so internet access is required.
+- If an image cannot be pulled, tasks terminate with `CannotPullContainerError`.
+
+**Not implemented**
+
+- Auto Scaling Group capacity providers (`CreateCapacityProvider`).
+- Service Connect and Cloud Map service discovery proxy mesh.
+- Account settings management (`PutAccountSetting`).
+- Container Insights CloudWatch metrics.
+
 ## Other services (found while building the basic pages)
 
 - **Lambda:** executes function code.

@@ -55,7 +55,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **Amazon EC2** | ✅ Full console | Instances with every action, Launch instance wizard, launch templates, AMIs, EBS volumes and snapshots, security groups with a rule editor, Elastic IPs, key pairs, ENIs, placement groups, load balancers, target groups, Auto Scaling |
 | **Aurora and RDS** | ✅ Full console | Databases tree, Create database (Standard and Easy create, 8 engines), Modify with a change summary, read replicas, readers and failover, snapshots (take, restore, copy, export to S3), proxies, subnet/parameter/option groups, events |
 | **AWS Glue** | ✅ Full console | Databases and tables, View data (via Athena), data quality rules, crawler wizard, script editor jobs (Spark and Python shell), runs and schedules, triggers, workflows with a live graph |
-| ECS, ECR, EKS, MSK, ElastiCache, Redshift, DocumentDB, Neptune, Athena, Kinesis, Lambda, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **Amazon ECS** | ✅ Full console | Clusters, Create cluster, cluster tabs (Services, Tasks, Infrastructure, Metrics), Create service (Fargate/EC2, networking, target groups), Run task, Task definitions with form and JSON editor |
+| ECR, EKS, MSK, ElastiCache, Redshift, DocumentDB, Neptune, Athena, Kinesis, Lambda, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -78,6 +79,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>Glue: script editor job (runs real PySpark)</b><br><img src="docs/images/glue-job-editor.png" alt="Glue job editor"></td>
 <td><b>Glue: workflow graph colored by run state</b><br><img src="docs/images/glue-workflow.png" alt="Glue workflow"></td>
+</tr>
+<tr>
+<td><b>ECS: clusters with services and tasks</b><br><img src="docs/images/ecs-clusters.png" alt="ECS clusters"></td>
+<td><b>ECS: cluster detail with active services</b><br><img src="docs/images/ecs-cluster-detail.png" alt="ECS cluster detail"></td>
 </tr>
 </table>
 

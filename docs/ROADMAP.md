@@ -13,8 +13,9 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 3 | EC2 (+ ELB, Auto Scaling) | ✅ | |
 | 4 | Aurora and RDS | ✅ | |
 | 5 | AWS Glue | ✅ | |
-| 6 | Containers: ECS, ECR, EKS | 🔜 | ECS pulls real images (needs internet) |
-| 7 | Amazon MSK (Kafka) | ⬜ | Broker hostnames don't resolve, so check what can be shown |
+| 6 | Amazon ECS | ✅ | Clusters, task definitions, services, tasks |
+| 7 | Containers: ECR, EKS | 🔜 | ECR private registries & images, EKS K8s clusters |
+| 8 | Amazon MSK (Kafka) | ⬜ | Broker hostnames don't resolve, so check what can be shown |
 | 8 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
 | 9 | Lambda | ⬜ | Code runs for real, so an inline code editor plus Test events is high value |
 | 10 | Athena | ⬜ | SQL runs for real, so build a query editor with the catalog tree |
