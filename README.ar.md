@@ -93,7 +93,7 @@ sudo dnf install -y https://downloads.aws.com/aws-emulator/packages/aws-emulator
 </div>
 
 ```bash
-git clone https://github.com/<owner>/aws-emulator-console.git
+git clone https://github.com/SayedELMASRY2/aws-emulator-console.git
 cd aws-emulator-console
 ```
 

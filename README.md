@@ -187,7 +187,7 @@ Keep this terminal open while you use the console.
 ### Step 2: Get the console
 
 ```bash
-git clone https://github.com/<owner>/aws-emulator-console.git
+git clone https://github.com/SayedELMASRY2/aws-emulator-console.git
 cd aws-emulator-console
 ```
 
