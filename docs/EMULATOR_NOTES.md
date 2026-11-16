@@ -165,6 +165,23 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Pull through cache.
 - Registry permissions.
 
+## Amazon EKS
+
+**Works**
+
+- `CreateCluster`, `DescribeCluster`, `ListClusters`, `DeleteCluster`.
+- Supports Kubernetes `1.31` (older versions like 1.28/1.29 are rejected as deprecated).
+- Generates a local control plane API server endpoint on `https://127.0.0.1:<port>`.
+- Generates valid certificate authority data and OIDC issuer.
+- `CreateNodegroup`, `DescribeNodegroup`, `ListNodegroups`, `DeleteNodegroup`.
+- `CreateAddon`, `DescribeAddon`, `ListAddons`, `DeleteAddon`, and `DescribeAddonVersions`.
+
+**Not implemented**
+
+- `ListFargateProfiles` returns `501 NotImplemented` (scaffolded in emulator).
+- Access entries / IAM authenticator RBAC management.
+- EKS Insights.
+
 ## Other services (found while building the basic pages)
 
 - **Lambda:** executes function code.

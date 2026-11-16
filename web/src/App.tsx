@@ -17,6 +17,7 @@ import RdsRoutes, { RDS_NAV } from "./pages/rds/routes";
 import GlueRoutes, { GLUE_NAV } from "./pages/glue/routes";
 import EcsRoutes, { ECS_NAV } from "./pages/ecs/routes";
 import EcrRoutes, { ECR_NAV } from "./pages/ecr/routes";
+import EksRoutes, { EKS_NAV } from "./pages/eks/routes";
 
 // Pages set their breadcrumbs through this context.
 type Crumb = BreadcrumbGroupProps.Item;
@@ -35,6 +36,7 @@ function sideNavFor(path: string): { header: SideNavigationProps.Header; items: 
   if (path.startsWith("/glue")) return GLUE_NAV;
   if (path.startsWith("/ecs")) return ECS_NAV;
   if (path.startsWith("/ecr")) return ECR_NAV;
+  if (path.startsWith("/eks")) return EKS_NAV;
   return {
     header: { text: "Emulator Console", href: "#/" },
     items: [
@@ -119,6 +121,7 @@ function Shell() {
             <Route path="/glue/*" element={<GlueRoutes />} />
             <Route path="/ecs/*" element={<EcsRoutes />} />
             <Route path="/ecr/*" element={<EcrRoutes />} />
+            <Route path="/eks/*" element={<EksRoutes />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         }

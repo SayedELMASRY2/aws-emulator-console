@@ -20,7 +20,7 @@ export const SERVICES: Service[] = [
   L("lambda", "Lambda", "Compute", "/lambda", "Run code without thinking about servers"),
   { id: "ecs", name: "ECS", group: "Containers", href: "#/ecs/clusters", description: "Highly secure, reliable, and scalable way to run containers" },
   { id: "ecr", name: "ECR", group: "Containers", href: "#/ecr/repositories", description: "Easily store, manage, and deploy container images" },
-  L("eks", "EKS", "Containers", "/eks", "Managed Kubernetes"),
+  { id: "eks", name: "EKS", group: "Containers", href: "#/eks/clusters", description: "Start, run, and scale Kubernetes applications" },
   L("sqs", "SQS", "Application Integration", "/sqs", "Message queues"),
   L("sns", "SNS", "Application Integration", "/sns", "Pub/sub messaging"),
   L("events", "EventBridge", "Application Integration", "/events", "Serverless event bus"),

@@ -17,7 +17,7 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | AWS Glue | Full | `#/glue/getting-started` | `web/src/pages/glue/` |
 | Amazon ECS | Full | `#/ecs/clusters` | `web/src/pages/ecs/` |
 | Amazon ECR | Full | `#/ecr/repositories` | `web/src/pages/ecr/` |
-| EKS | Basic | `/legacy/#/eks` … | `static/pages/containers.js` |
+| Amazon EKS | Full | `#/eks/clusters` | `web/src/pages/eks/` |
 | MSK (Kafka) | Basic | `/legacy/#/kafka` | `static/pages/kafka.js` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Athena, Kinesis | Basic | `/legacy/#/...` | `static/pages/extras.js` |
@@ -202,6 +202,32 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Configured multi-rule lifecycle policy and verified JSON round-trip.
 - Verified Docker push commands generation.
 - Verified `DescribeImages` and `BatchDeleteImage`.
+- Captured screenshots in headless Chrome.
+
+## Amazon EKS
+
+**Pages**
+
+- **Clusters:**
+  - Cluster list with status, Kubernetes version, API server endpoint, and creation date.
+  - Create cluster: name, Kubernetes 1.31 version, cluster service role, VPC and subnets across availability zones, security groups, public/private endpoint access.
+  - Cluster detail: overview with VPC, subnets, cluster security group, OIDC issuer, and copyable `aws eks update-kubeconfig` command.
+  - Delete cluster modal with confirmation.
+- **Compute:**
+  - Node groups table: name, status, min/max/desired scaling, capacity type, instance types.
+  - Add node group: name, node IAM role, capacity type (On-Demand / Spot), instance type, scaling configuration, subnets.
+  - Fargate profiles: marked with an emulator note (scaffolded, 501 NotImplemented in emulator).
+- **Add-ons:**
+  - Installed add-ons table with version and status.
+  - Install add-on: curated operational add-ons (VPC CNI, CoreDNS, kube-proxy, EBS CSI Driver) with version selector populated from `DescribeAddonVersions`.
+- **Unsupported pages:** Add-ons catalog, Access entries, Insights (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created cluster `k8s-production` with version 1.31 and verified local API endpoint generation.
+- Created managed node group `system-pool`.
+- Installed operational add-on `vpc-cni`.
+- Verified `kubeconfig` command generation.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

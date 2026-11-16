@@ -15,8 +15,8 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 5 | AWS Glue | ✅ | |
 | 6 | Amazon ECS | ✅ | Clusters, task definitions, services, tasks |
 | 7 | Amazon ECR | ✅ | Repositories, push commands, images, lifecycle policies |
-| 8 | Amazon EKS | 🔜 | Kubernetes clusters, node groups, add-ons |
-| 9 | Amazon MSK (Kafka) | ⬜ | Broker hostnames don't resolve, so check what can be shown |
+| 8 | Amazon EKS | ✅ | Kubernetes clusters, node groups, add-ons |
+| 9 | Amazon MSK (Kafka) | 🔜 | Broker hostnames don't resolve, so check what can be shown |
 | 10 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
 | 11 | Lambda | ⬜ | Code runs for real, so an inline code editor plus Test events is high value |
 | 12 | Athena | ⬜ | SQL runs for real, so build a query editor with the catalog tree |

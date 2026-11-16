@@ -57,7 +57,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **AWS Glue** | ✅ Full console | Databases and tables, View data (via Athena), data quality rules, crawler wizard, script editor jobs (Spark and Python shell), runs and schedules, triggers, workflows with a live graph |
 | **Amazon ECS** | ✅ Full console | Clusters, Create cluster, cluster tabs (Services, Tasks, Infrastructure, Metrics), Create service (Fargate/EC2, networking, target groups), Run task, Task definitions with form and JSON editor |
 | **Amazon ECR** | ✅ Full console | Repositories, Create repository (tag immutability, scan on push, encryption), View push commands, Images table, Lifecycle policy editor with presets |
-| EKS, MSK, ElastiCache, Redshift, DocumentDB, Neptune, Athena, Kinesis, Lambda, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **Amazon EKS** | ✅ Full console | Kubernetes clusters, Create cluster (K8s 1.31, subnets, public/private API endpoints), kubeconfig generation, Node groups (scaling, capacity, instance types), Add-ons installation |
+| MSK, ElastiCache, Redshift, DocumentDB, Neptune, Athena, Kinesis, Lambda, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -88,6 +89,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>ECR: repositories</b><br><img src="docs/images/ecr-repositories.png" alt="ECR repositories"></td>
 <td><b>ECR: repository detail and push commands</b><br><img src="docs/images/ecr-repository-detail.png" alt="ECR repository detail"></td>
+</tr>
+<tr>
+<td><b>EKS: clusters with control plane endpoint</b><br><img src="docs/images/eks-clusters.png" alt="EKS clusters"></td>
+<td><b>EKS: cluster detail with node groups & add-ons</b><br><img src="docs/images/eks-cluster-detail.png" alt="EKS cluster detail"></td>
 </tr>
 </table>
 
