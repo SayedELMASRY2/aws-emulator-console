@@ -296,6 +296,26 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 
 - Activities (polling external workers).
 
+## Amazon ElastiCache
+
+**Works**
+
+- `CreateCacheCluster`, `DescribeCacheClusters`, `DeleteCacheCluster`, `RebootCacheCluster`.
+- Supports Redis, Valkey, and Memcached engines.
+- `CreateCacheSubnetGroup`, `DescribeCacheSubnetGroups`, `DeleteCacheSubnetGroup`.
+- `CreateCacheParameterGroup`, `DescribeCacheParameterGroups`, `DeleteCacheParameterGroup`.
+
+**Real work**
+
+- Active Redis and Memcached clusters bind real in-memory server sockets on `127.0.0.1:<port>`.
+- Endpoints respond natively to the Redis wire protocol (e.g. responds `+PONG` to raw `PING`).
+
+**Not implemented**
+
+- ElastiCache Serverless automated partition sharding.
+- Redis ACL User Groups.
+- S3 snapshot export and restore.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.

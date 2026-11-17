@@ -46,11 +46,13 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **Amazon SNS** | ✅ كونسول كامل: قنوات الإشعارات (Topics)، ونشر الرسائل الحية (Publish message)، وإدارة الاشتراكات عبر البروتوكولات المختلفة (Email، وSQS، وLambda، وHTTP) |
 | **Amazon EventBridge** | ✅ كونسول كامل: قواعد توجيه الأحداث (Rules)، ومسارات الأحداث (Event buses)، وإرسال أحداث مخصصة حية (Send events) واختبار مطابقة الأنماط |
 | **AWS Step Functions** | ✅ كونسول كامل: مسارات العمل التفاعلية (State machines)، ومحرر لغة ASL، وتشغيل ومتابعة التنفيذ المباشر مع استعراض شجرة الـ Event history |
-| باقي الخدمات (ElastiCache وRedshift وDocumentDB وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **Amazon ElastiCache** | ✅ كونسول كامل: كلاسترات Redis وValkey وMemcached، وتشغيل سيرفرات حقيقية على 127.0.0.1 مع أمر اتصال redis-cli، وإدارة الـ Subnet groups وParameter groups |
+| باقي الخدمات (Redshift وDocumentDB وNeptune وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 
 - **قواعد البيانات:** MySQL وMariaDB وPostgreSQL وAurora بيشتغلوا كسيرفرات حقيقية على `127.0.0.1`، وصفحة الـ database بتديك أمر الاتصال.
+- **الـ Caching في الذاكرة (ElastiCache):** كلاسترات Redis وMemcached بتشتغل كسيرفرات حقيقية على `127.0.0.1`، وبترد على بروتوكول Redis الحقيقي وتديك أمر الاتصال بـ `redis-cli`.
 - **Glue crawlers:** بتقرأ ملفاتك في S3 وتطلّع الجداول والـ partitions.
 - **Glue jobs:** بتشغّل كود Python وPySpark بجد، وبتكتب النتيجة في S3.
 - **Athena:** بيشغّل SQL على البيانات.

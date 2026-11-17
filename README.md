@@ -65,7 +65,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **Amazon SNS** | ✅ Full console | Topics (Standard & FIFO), Publish message tester, Subscriptions management across protocols (Email, SQS, Lambda, HTTP) |
 | **Amazon EventBridge** | ✅ Full console | Rules (Event pattern & Schedule), Event buses, Targets (Lambda, SQS, SNS), and PutEvents interactive event dispatcher |
 | **AWS Step Functions** | ✅ Full console | State machines (Standard & Express), Amazon States Language (ASL) JSON editor, Execution runner, Input/Output inspector, and Execution history graph |
-| ElastiCache, Redshift, DocumentDB, Neptune, Kinesis, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **Amazon ElastiCache** | ✅ Full console | Redis, Valkey, and Memcached clusters, live 127.0.0.1 socket endpoints with redis-cli connection helper, Subnet groups, Parameter groups |
+| Redshift, DocumentDB, Neptune, Kinesis, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -125,6 +126,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <td><b>EventBridge: event rules</b><br><img src="docs/images/events-rules.png" alt="EventBridge rules"></td>
 <td><b>Step Functions: execution detail & event history</b><br><img src="docs/images/stepfunctions-execution-detail.png" alt="Step Functions execution detail"></td>
 </tr>
+<tr>
+<td><b>ElastiCache: dashboard</b><br><img src="docs/images/elasticache-dashboard.png" alt="ElastiCache dashboard"></td>
+<td><b>ElastiCache: cluster detail with redis-cli</b><br><img src="docs/images/elasticache-cluster-detail.png" alt="ElastiCache cluster detail"></td>
+</tr>
 </table>
 
 ## What runs for real
@@ -134,6 +139,7 @@ The emulator does more than store API calls. These things actually happen:
 | Feature | What actually happens |
 |---|---|
 | RDS and Aurora | MySQL 8.4, MariaDB 11.4, PostgreSQL and Aurora run as real servers on `127.0.0.1:<port>`. The database page shows the `mysql` or `psql` command to connect. |
+| ElastiCache | Redis and Memcached clusters run as real in-memory server sockets on `127.0.0.1:<port>`. The cluster page shows the `redis-cli` command to connect. |
 | Glue crawlers | Read your files in S3, infer the schema and partitions, and create tables. |
 | Glue jobs | Run your Python and PySpark scripts (`GlueContext`, `from_catalog`, boto3), and write CSV/JSON to S3. |
 | Athena | Runs SQL over S3 data and Glue tables. The table page has a View data button. |

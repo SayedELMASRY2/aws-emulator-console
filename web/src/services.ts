@@ -8,7 +8,7 @@ export const SERVICES: Service[] = [
   { id: "s3", name: "S3", group: "Storage", href: "#/s3/buckets", description: "Object storage built to retrieve any amount of data from anywhere" },
   { id: "dynamodb", name: "DynamoDB", group: "Database", href: "#/dynamodb/dashboard", description: "Managed NoSQL database" },
   { id: "rds", name: "Aurora and RDS", group: "Database", href: "#/rds/dashboard", description: "Managed relational database service" },
-  L("elasticache", "ElastiCache", "Database", "/elasticache", "In-memory caching"),
+  { id: "elasticache", name: "ElastiCache", group: "Database", href: "#/elasticache/dashboard", description: "In-memory caching service for Redis, Valkey, and Memcached" },
   L("redshift", "Redshift", "Database", "/redshift", "Data warehouse"),
   L("docdb", "DocumentDB", "Database", "/docdb", "MongoDB-compatible document database"),
   L("neptune", "Neptune", "Database", "/neptune", "Graph database"),

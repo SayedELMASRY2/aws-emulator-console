@@ -23,10 +23,11 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 13 | Amazon SNS | ✅ | Topics, publish messages, subscriptions (email, SQS, lambda, http) |
 | 14 | Amazon EventBridge | ✅ | Event buses, rules, event pattern routing, PutEvents dispatcher |
 | 15 | AWS Step Functions | ✅ | State machines, ASL definition editor, live execution runner, event history |
-| 16 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS does |
-| 17 | IAM, Secrets Manager, Parameter Store, KMS | ⬜ | IAM matters because the emulator enforces it |
-| 18 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
-| 19 | Kinesis Data Streams | ⬜ | Real-time streaming records |
+| 16 | Amazon ElastiCache | ✅ | Redis/Valkey/Memcached clusters, local sockets, subnet & parameter groups |
+| 17 | Other databases: DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS/ElastiCache do |
+| 18 | IAM, Secrets Manager, Parameter Store, KMS | ⬜ | IAM matters because the emulator enforces it |
+| 19 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
+| 20 | Kinesis Data Streams | ⬜ | Real-time streaming records |
 
 ## Per-service scope
 

@@ -25,7 +25,8 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Amazon SNS | Full | `#/sns/topics` | `web/src/pages/sns/` |
 | Amazon EventBridge | Full | `#/events/rules` | `web/src/pages/events/` |
 | AWS Step Functions | Full | `#/stepfunctions/state-machines` | `web/src/pages/stepfunctions/` |
-| ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
+| Amazon ElastiCache | Full | `#/elasticache/dashboard` | `web/src/pages/elasticache/` |
+| Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
@@ -409,6 +410,37 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created state machine `order-orchestration` with Pass state pipeline.
 - Started execution `exec-live-1` with input JSON.
 - Verified execution success, state transitions, output payload, and event history graph.
+- Captured screenshots in headless Chrome.
+
+## Amazon ElastiCache
+
+**Pages**
+
+- **Dashboard:**
+  - Resources summary counters (Redis clusters, Memcached clusters, Subnet groups, Parameter groups).
+  - Quick create cards for Redis and Memcached.
+- **Clusters (Redis & Memcached):**
+  - Clusters list with name, status, engine, node type, node count, primary endpoint with copy, and created at.
+  - Create cluster: Engine options (Redis, Valkey, Memcached), cluster name, node types (`cache.t3.micro`, `cache.t4g.micro`, `cache.m5.large`), number of nodes, subnet group, and parameter group.
+  - Cluster detail: overview with engine version and ARN, connect container showing active `redis-cli -h 127.0.0.1 -p <port>` command with copy button, nodes list with port and local address.
+  - Reboot cluster action (`RebootCacheCluster`).
+  - Delete cluster modal with confirmation.
+- **Subnet groups:**
+  - Subnet groups list with name, description, VPC ID, and subnets count.
+  - Create subnet group: name, description, VPC picker, and subnets multiselect.
+  - Delete subnet group modal.
+- **Parameter groups:**
+  - Parameter groups list with family, name, and description.
+  - Create parameter group: family selector (`redis7`, `valkey7`, `memcached1.6`), name, and description.
+  - Delete parameter group modal (protected default parameter groups).
+- **Unsupported pages:** Serverless caches, User groups, Backups (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created subnet group `production-subnets`.
+- Created Redis cluster `app-cache-redis` and Memcached cluster `web-cache-memcached`.
+- Verified local TCP socket listener on port `33401` responding with `+PONG` to raw `PING`.
+- Tested reboot cluster action and connection command generation.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services
