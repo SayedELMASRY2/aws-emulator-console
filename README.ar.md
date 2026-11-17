@@ -47,7 +47,8 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **Amazon EventBridge** | ✅ كونسول كامل: قواعد توجيه الأحداث (Rules)، ومسارات الأحداث (Event buses)، وإرسال أحداث مخصصة حية (Send events) واختبار مطابقة الأنماط |
 | **AWS Step Functions** | ✅ كونسول كامل: مسارات العمل التفاعلية (State machines)، ومحرر لغة ASL، وتشغيل ومتابعة التنفيذ المباشر مع استعراض شجرة الـ Event history |
 | **Amazon ElastiCache** | ✅ كونسول كامل: كلاسترات Redis وValkey وMemcached، وتشغيل سيرفرات حقيقية على 127.0.0.1 مع أمر اتصال redis-cli، وإدارة الـ Subnet groups وParameter groups |
-| باقي الخدمات (Redshift وDocumentDB وNeptune وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **AWS IAM** | ✅ كونسول كامل: إدارة الصلاحيات، وإنشاء الـ Roles بروابط الثقة (Trust relationships)، ومحرر الـ Policies بالـ JSON، والمستخدمين وتوليد مفاتيح الـ Access Keys |
+| باقي الخدمات (Redshift وDocumentDB وSecrets Manager وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 

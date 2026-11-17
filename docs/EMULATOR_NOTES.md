@@ -316,6 +316,27 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Redis ACL User Groups.
 - S3 snapshot export and restore.
 
+## AWS IAM
+
+**Works**
+
+- `GetAccountSummary`, `ListUsers`, `GetUser`, `CreateUser`, `DeleteUser`.
+- `CreateAccessKey`, `ListAccessKeys`, `DeleteAccessKey`.
+- `ListRoles`, `GetRole`, `CreateRole`, `DeleteRole`.
+- `AttachRolePolicy`, `DetachRolePolicy`, `ListAttachedRolePolicies`.
+- `ListPolicies`, `GetPolicy`, `GetPolicyVersion`, `CreatePolicy`, `DeletePolicy`.
+- `ListGroups`, `CreateGroup`, `DeleteGroup`.
+- Trust policies: validates and parses service principals (e.g. `lambda.amazonaws.com`, `glue.amazonaws.com`, `ec2.amazonaws.com`).
+
+**Real work**
+
+- The emulator strictly validates IAM trust policies and permissions for serverless and asynchronous workloads (Glue ETL scripts, RDS S3 exports, and Lambda execution).
+
+**Not implemented**
+
+- Identity providers (SAML / OIDC external IdP).
+- Credential reports.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.

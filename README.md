@@ -66,7 +66,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **Amazon EventBridge** | ✅ Full console | Rules (Event pattern & Schedule), Event buses, Targets (Lambda, SQS, SNS), and PutEvents interactive event dispatcher |
 | **AWS Step Functions** | ✅ Full console | State machines (Standard & Express), Amazon States Language (ASL) JSON editor, Execution runner, Input/Output inspector, and Execution history graph |
 | **Amazon ElastiCache** | ✅ Full console | Redis, Valkey, and Memcached clusters, live 127.0.0.1 socket endpoints with redis-cli connection helper, Subnet groups, Parameter groups |
-| Redshift, DocumentDB, Neptune, Kinesis, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **AWS IAM** | ✅ Full console | Roles with service trust wizard & policy attachment, Customer managed policies with JSON editor & presets, Users with access key generation, User groups |
+| Redshift, DocumentDB, Neptune, Kinesis, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -129,6 +130,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>ElastiCache: dashboard</b><br><img src="docs/images/elasticache-dashboard.png" alt="ElastiCache dashboard"></td>
 <td><b>ElastiCache: cluster detail with redis-cli</b><br><img src="docs/images/elasticache-cluster-detail.png" alt="ElastiCache cluster detail"></td>
+</tr>
+<tr>
+<td><b>IAM: dashboard</b><br><img src="docs/images/iam-dashboard.png" alt="IAM dashboard"></td>
+<td><b>IAM: role detail with attached policies</b><br><img src="docs/images/iam-role-detail.png" alt="IAM role detail"></td>
 </tr>
 </table>
 

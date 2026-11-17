@@ -25,7 +25,7 @@ export const SERVICES: Service[] = [
   { id: "sns", name: "SNS", group: "Application Integration", href: "#/sns/topics", description: "Pub/sub messaging and mobile notifications" },
   { id: "events", name: "EventBridge", group: "Application Integration", href: "#/events/rules", description: "Serverless event bus for event-driven architectures" },
   { id: "sfn", name: "Step Functions", group: "Application Integration", href: "#/stepfunctions/state-machines", description: "Visual workflows for distributed applications" },
-  L("iam", "IAM", "Security, Identity & Compliance", "/iam", "Manage access to AWS resources"),
+  { id: "iam", name: "IAM", group: "Security, Identity & Compliance", href: "#/iam/dashboard", description: "Manage access to AWS resources and identities" },
   L("secrets", "Secrets Manager", "Security, Identity & Compliance", "/secrets", "Rotate and manage secrets"),
   L("ssm", "Parameter Store", "Management & Governance", "/ssm", "Configuration values"),
   L("logs", "CloudWatch Logs", "Management & Governance", "/logs", "Log groups and events"),

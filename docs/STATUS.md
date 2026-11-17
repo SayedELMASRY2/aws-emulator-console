@@ -26,9 +26,10 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Amazon EventBridge | Full | `#/events/rules` | `web/src/pages/events/` |
 | AWS Step Functions | Full | `#/stepfunctions/state-machines` | `web/src/pages/stepfunctions/` |
 | Amazon ElastiCache | Full | `#/elasticache/dashboard` | `web/src/pages/elasticache/` |
+| AWS IAM | Full | `#/iam/dashboard` | `web/src/pages/iam/` |
 | Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -441,6 +442,39 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created Redis cluster `app-cache-redis` and Memcached cluster `web-cache-memcached`.
 - Verified local TCP socket listener on port `33401` responding with `+PONG` to raw `PING`.
 - Tested reboot cluster action and connection command generation.
+- Captured screenshots in headless Chrome.
+
+## AWS IAM
+
+**Pages**
+
+- **Dashboard:**
+  - Resource count cards (Users, User groups, Roles, Customer managed policies).
+  - Account details: Account ID `000000000000`, Default Region, and Access Keys Quota.
+  - Quick action navigation cards.
+- **Roles:**
+  - Roles list with role name, trusted entities, description, ARN, and creation date.
+  - Create role: trusted entity selection (Lambda, EC2, ECS tasks, Glue, Step Functions, RDS export) and custom trust policy JSON editor.
+  - Role detail: role overview, Permissions tab (attached policies table, attach policies modal, detach action), and Trust relationships tab with JSON viewer.
+  - Delete role modal with automatic policy detachment.
+- **Policies:**
+  - Policies list with type badge (AWS managed / Customer managed), description, and attachment count.
+  - Create policy: visual presets (S3 read/write, DynamoDB full access, Administrator) and JSON document editor.
+  - Policy detail: overview, permissions policy document viewer, and attached entities (Roles, Users, Groups).
+  - Delete policy modal.
+- **Users & User groups:**
+  - Users list with creation date and ARN.
+  - Create user: programmatic access checkbox with live Access Key ID and Secret Access Key generation modal.
+  - User groups list and Create group modal.
+  - Delete user and delete group modals.
+- **Unsupported pages:** Identity providers, Credential report (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created user `deploy-bot` and generated programmatic access keys.
+- Created policy `AppReadOnlyPolicy` with S3 and DynamoDB read statements.
+- Created role `AppServiceRole` with Lambda trust policy.
+- Attached policy to role, verified `ListAttachedRolePolicies`, and detached policy.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services
