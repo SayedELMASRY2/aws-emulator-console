@@ -21,9 +21,11 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | AWS Lambda | Full | `#/lambda/functions` | `web/src/pages/lambda/` |
 | Amazon Athena | Full | `#/athena/query-editor` | `web/src/pages/athena/` |
 | Amazon MSK | Full | `#/msk/clusters` | `web/src/pages/msk/` |
+| Amazon SQS | Full | `#/sqs/queues` | `web/src/pages/sqs/` |
+| Amazon SNS | Full | `#/sns/topics` | `web/src/pages/sns/` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -315,6 +317,50 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created configuration `analytics-retention` with custom log retention rules.
 - Created cluster `production-streams` with Kafka 3.8.x and 2 broker nodes.
 - Verified `DescribeClusterV2`, `GetBootstrapBrokers`, and `ListNodes`.
+- Captured screenshots in headless Chrome.
+
+## Amazon SQS
+
+**Pages**
+
+- **Queues:**
+  - Queues list with name, type (Standard/FIFO), created timestamp, messages available, messages in flight, and messages delayed.
+  - Create queue: Standard or FIFO (.fifo), visibility timeout, message retention period, delivery delay, receive wait time (long polling), and SSE-SQS encryption.
+  - Queue detail: overview metrics (available, in-flight, delayed messages), configuration tab, encryption tab, and purge queue action.
+  - Send and receive messages: interactive message testing page with payload editor, delivery delay, FIFO deduplication/group IDs, polling for messages, inspection modal, and delete message.
+  - Delete queue modal with confirmation.
+- **Unsupported pages:** Dead-letter queue redrive (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created queue `order-events` with custom visibility timeout and retention.
+- Sent message with JSON payload.
+- Polled queue and verified message receipt and body inspection.
+- Purged queue and deleted queue.
+- Captured screenshots in headless Chrome.
+
+## Amazon SNS
+
+**Pages**
+
+- **Topics:**
+  - Topics list with name, type (Standard/FIFO), topic ARN with copy button, and confirmed subscriptions count.
+  - Create topic: Standard or FIFO (.fifo), display name, and encryption.
+  - Topic detail: overview, subscriptions list for topic, and access policy view.
+  - Publish message: subject, message body editor, FIFO message group ID / deduplication ID, and live publish execution.
+  - Delete topic modal with confirmation.
+- **Subscriptions:**
+  - Subscriptions list across all topics: endpoint, protocol (Email, SQS, Lambda, HTTP/HTTPS), status (Pending confirmation / Confirmed), and subscription ARN.
+  - Create subscription: topic ARN selector, protocol picker, and endpoint input.
+  - Delete subscription modal.
+- **Unsupported pages:** Push notifications, SMS (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created topic `order-notifications`.
+- Created email subscription to topic.
+- Published message with subject and JSON payload.
+- Verified subscription listing and topic deletion.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

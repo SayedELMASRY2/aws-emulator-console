@@ -19,10 +19,10 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 9 | AWS Lambda | ✅ | Functions, in-browser code editor & Deploy, Test events with live execution |
 | 10 | Amazon Athena | ✅ | Query editor, catalog tree & table schema preview, query history, workgroups |
 | 11 | Amazon MSK | ✅ | Clusters, bootstrap brokers, broker nodes, cluster configurations |
-| 12 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS does |
-| 13 | SQS, SNS, EventBridge, Step Functions | ⬜ | Send/receive message pages, rules, state machine graph |
-| 14 | IAM, Secrets Manager, Parameter Store, KMS | ⬜ | IAM matters because the emulator enforces it |
-| 15 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
+| 12 | Amazon SQS | ✅ | Queues (Standard & FIFO), Send/receive messages runner, purge, dead-letter |
+| 13 | Amazon SNS | ✅ | Topics, publish messages, subscriptions (email, SQS, lambda, http) |
+| 14 | EventBridge & Step Functions | 🔜 | Event bus, rules, state machines visual graph |
+| 15 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
 | 16 | Kinesis, Firehose and others the emulator supports | ⬜ | Check `GET /api/meta/services` and probe |
 
 ## Per-service scope

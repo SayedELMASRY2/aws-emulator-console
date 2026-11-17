@@ -42,7 +42,9 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **AWS Lambda** | ✅ كونسول كامل: كتابة الدوال، ومحرر كود حي في المتصفح مع Deploy فوري، وتشغيل أحداث الاختبار (Test Events) مع تنفيذ حقيقي وعرض الـ Logs الحية |
 | **Amazon Athena** | ✅ كونسول كامل: محرر استعلامات SQL تفاعلي مربوط بكتالوج Glue، وتنفيذ حقيقي على ملفات S3، وتحميل النتائج CSV، وتاريخ الاستعلامات السابقة، ومجموعات العمل (Workgroups) |
 | **Amazon MSK** | ✅ كونسول كامل: كلاسترات Apache Kafka المدارة (Provisioned وServerless)، وعناوين الـ Bootstrap brokers، وعقد الـ Brokers، ومحرر إعدادات `server.properties` |
-| باقي الخدمات (SQS وSNS وEventBridge وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **Amazon SQS** | ✅ كونسول كامل: طوابير الرسائل (Standard وFIFO)، ومختبر إرسال واستقبال الرسائل الحي (Send and receive messages)، والـ Long polling، وحذف وتنظيف الطوابير |
+| **Amazon SNS** | ✅ كونسول كامل: قنوات الإشعارات (Topics)، ونشر الرسائل الحية (Publish message)، وإدارة الاشتراكات عبر البروتوكولات المختلفة (Email، وSQS، وLambda، وHTTP) |
+| باقي الخدمات (EventBridge وStep Functions وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 

@@ -240,6 +240,34 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Broker hostnames follow AWS DNS conventions and are not resolvable on a local loopback network. The emulator covers the MSK management APIs.
 - MSK Connect (custom plugins, connectors, worker configurations) is not implemented in the emulator.
 
+## Amazon SQS
+
+**Works**
+
+- `CreateQueue`, `GetQueueUrl`, `GetQueueAttributes`, `DeleteQueue`, `PurgeQueue`.
+- Standard and FIFO (`.fifo`) queues with content-based deduplication and message group IDs.
+- `SendMessage`, `ReceiveMessage`, `DeleteMessage`.
+- Visibility timeout and retention periods are actively enforced by the emulator.
+
+**Not implemented**
+
+- Dead-letter queue automated redrive tasks.
+
+## Amazon SNS
+
+**Works**
+
+- `CreateTopic`, `GetTopicAttributes`, `DeleteTopic`.
+- Standard and FIFO (`.fifo`) topics.
+- `Publish` message delivery.
+- `Subscribe`, `Unsubscribe`, `ListSubscriptions`, `ListSubscriptionsByTopic`.
+- Protocols: `email`, `sqs`, `lambda`, `http`, `https`.
+
+**Not implemented**
+
+- Push notifications to mobile devices (Apple APNs / Google FCM).
+- Direct carrier SMS origination.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.

@@ -61,7 +61,9 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **AWS Lambda** | ✅ Full console | Functions list, Create function (Python & Node.js runtimes), in-browser Code editor with live Deploy, Test event runner with live execution & logs, environment variables |
 | **Amazon Athena** | ✅ Full console | Interactive SQL Query editor with Glue catalog schema browser, live query execution over S3 data, CSV download, Recent queries history, Workgroups |
 | **Amazon MSK** | ✅ Full console | Managed Apache Kafka clusters (Provisioned & Serverless), broker nodes, bootstrap brokers endpoints (Plaintext & TLS), and cluster configurations (`server.properties`) |
-| ElastiCache, Redshift, DocumentDB, Neptune, Kinesis, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **Amazon SQS** | ✅ Full console | Queues (Standard & FIFO), Send and receive messages live tester, visibility timeout, long polling, DLQ, queue purging |
+| **Amazon SNS** | ✅ Full console | Topics (Standard & FIFO), Publish message tester, Subscriptions management across protocols (Email, SQS, Lambda, HTTP) |
+| ElastiCache, Redshift, DocumentDB, Neptune, Kinesis, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -108,6 +110,14 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>MSK: Apache Kafka clusters</b><br><img src="docs/images/msk-clusters.png" alt="MSK clusters"></td>
 <td><b>MSK: cluster detail with bootstrap brokers</b><br><img src="docs/images/msk-cluster-detail.png" alt="MSK cluster detail"></td>
+</tr>
+<tr>
+<td><b>SQS: message queues list</b><br><img src="docs/images/sqs-queues.png" alt="SQS queues"></td>
+<td><b>SQS: send & receive messages tester</b><br><img src="docs/images/sqs-send-receive.png" alt="SQS send receive messages"></td>
+</tr>
+<tr>
+<td><b>SNS: notification topics</b><br><img src="docs/images/sns-topics.png" alt="SNS topics"></td>
+<td><b>SNS: topic detail & subscriptions</b><br><img src="docs/images/sns-topic-detail.png" alt="SNS topic detail"></td>
 </tr>
 </table>
 
