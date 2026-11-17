@@ -67,7 +67,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **AWS Step Functions** | ✅ Full console | State machines (Standard & Express), Amazon States Language (ASL) JSON editor, Execution runner, Input/Output inspector, and Execution history graph |
 | **Amazon ElastiCache** | ✅ Full console | Redis, Valkey, and Memcached clusters, live 127.0.0.1 socket endpoints with redis-cli connection helper, Subnet groups, Parameter groups |
 | **AWS IAM** | ✅ Full console | Roles with service trust wizard & policy attachment, Customer managed policies with JSON editor & presets, Users with access key generation, User groups |
-| Redshift, DocumentDB, Neptune, Kinesis, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **AWS Secrets Manager** | ✅ Full console | Secrets list, Store a new secret (Key/value pairs & Plaintext), Retrieve secret value with on-demand decryption, version rotation |
+| Redshift, DocumentDB, Neptune, Kinesis, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -134,6 +135,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>IAM: dashboard</b><br><img src="docs/images/iam-dashboard.png" alt="IAM dashboard"></td>
 <td><b>IAM: role detail with attached policies</b><br><img src="docs/images/iam-role-detail.png" alt="IAM role detail"></td>
+</tr>
+<tr>
+<td><b>Secrets Manager: secrets list</b><br><img src="docs/images/secretsmanager-list.png" alt="Secrets Manager list"></td>
+<td><b>Secrets Manager: secret detail & value reveal</b><br><img src="docs/images/secretsmanager-detail.png" alt="Secrets Manager detail"></td>
 </tr>
 </table>
 

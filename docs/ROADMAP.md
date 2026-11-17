@@ -25,10 +25,11 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 15 | AWS Step Functions | ✅ | State machines, ASL definition editor, live execution runner, event history |
 | 16 | Amazon ElastiCache | ✅ | Redis/Valkey/Memcached clusters, local sockets, subnet & parameter groups |
 | 17 | AWS IAM | ✅ | Users, access keys, roles, trust policies, customer managed policies |
-| 18 | Other databases: DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS/ElastiCache do |
-| 19 | Secrets Manager, Parameter Store, KMS | ⬜ | Secret storage and rotation, parameter hierarchy |
-| 20 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
-| 21 | Kinesis Data Streams | ⬜ | Real-time streaming records |
+| 18 | AWS Secrets Manager | ✅ | Store new secret (Key/value & Plaintext), retrieve value, update versions |
+| 19 | Other databases: DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS/ElastiCache do |
+| 20 | Parameter Store (SSM) & KMS | ⬜ | Parameter hierarchy and encryption keys |
+| 21 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
+| 22 | Kinesis Data Streams | ⬜ | Real-time streaming records |
 
 ## Per-service scope
 

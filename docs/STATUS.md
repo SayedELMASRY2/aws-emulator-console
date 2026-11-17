@@ -27,9 +27,10 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | AWS Step Functions | Full | `#/stepfunctions/state-machines` | `web/src/pages/stepfunctions/` |
 | Amazon ElastiCache | Full | `#/elasticache/dashboard` | `web/src/pages/elasticache/` |
 | AWS IAM | Full | `#/iam/dashboard` | `web/src/pages/iam/` |
+| AWS Secrets Manager | Full | `#/secrets` | `web/src/pages/secrets/` |
 | Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -475,6 +476,26 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created policy `AppReadOnlyPolicy` with S3 and DynamoDB read statements.
 - Created role `AppServiceRole` with Lambda trust policy.
 - Attached policy to role, verified `ListAttachedRolePolicies`, and detached policy.
+- Captured screenshots in headless Chrome.
+
+## AWS Secrets Manager
+
+**Pages**
+
+- **Secrets:**
+  - Secrets list with secret name, description, last changed date, last accessed date, and secret ARN with copy button.
+  - Store a new secret: Key/value pairs (dynamic row editor) or Plaintext (JSON/text editor), secret name, description, and encryption key.
+  - Secret detail: secret overview, Retrieve secret value on-demand action with Key/value table and Plaintext tabs, and Edit secret value modal (`PutSecretValue`).
+  - Rotation configuration overview.
+  - Delete secret modal with immediate recovery bypass.
+- **Unsupported pages:** Rotation templates (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created secret `prod/database/mysql` with structured database credentials.
+- Retrieved and decrypted secret value via `GetSecretValue`.
+- Created new secret version via `PutSecretValue`.
+- Deleted secret immediately.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

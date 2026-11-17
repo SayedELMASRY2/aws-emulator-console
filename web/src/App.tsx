@@ -27,6 +27,7 @@ import EventBridgeRoutes, { EVENTS_NAV } from "./pages/events/routes";
 import StepFunctionsRoutes, { SFN_NAV } from "./pages/stepfunctions/routes";
 import ElastiCacheRoutes, { ELASTICACHE_NAV } from "./pages/elasticache/routes";
 import IamRoutes, { IAM_NAV } from "./pages/iam/routes";
+import SecretsRoutes, { SECRETS_NAV } from "./pages/secrets/routes";
 
 // Pages set their breadcrumbs through this context.
 type Crumb = BreadcrumbGroupProps.Item;
@@ -55,6 +56,7 @@ function sideNavFor(path: string): { header: SideNavigationProps.Header; items: 
   if (path.startsWith("/stepfunctions")) return SFN_NAV;
   if (path.startsWith("/elasticache")) return ELASTICACHE_NAV;
   if (path.startsWith("/iam")) return IAM_NAV;
+  if (path.startsWith("/secrets")) return SECRETS_NAV;
   return {
     header: { text: "Emulator Console", href: "#/" },
     items: [
@@ -149,6 +151,7 @@ function Shell() {
             <Route path="/stepfunctions/*" element={<StepFunctionsRoutes />} />
             <Route path="/elasticache/*" element={<ElastiCacheRoutes />} />
             <Route path="/iam/*" element={<IamRoutes />} />
+            <Route path="/secrets/*" element={<SecretsRoutes />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         }

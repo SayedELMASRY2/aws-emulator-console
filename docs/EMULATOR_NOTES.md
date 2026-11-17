@@ -337,6 +337,19 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Identity providers (SAML / OIDC external IdP).
 - Credential reports.
 
+## AWS Secrets Manager
+
+**Works**
+
+- `CreateSecret`, `DescribeSecret`, `ListSecrets`, `DeleteSecret`.
+- `GetSecretValue` and `PutSecretValue` for version updates and rotation.
+- Staging labels (`AWSCURRENT`, `AWSPREVIOUS`).
+- Supports structured JSON key/value pairs and raw plaintext secret strings.
+
+**Not implemented**
+
+- Pre-packaged CloudFormation rotation templates for external databases.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.
