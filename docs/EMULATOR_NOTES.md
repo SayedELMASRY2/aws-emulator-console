@@ -382,6 +382,21 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - CloudFormation StackSets.
 - Public extension registry modules.
 
+## CloudWatch Logs
+
+**Works**
+
+- `CreateLogGroup`, `DescribeLogGroups`, `DeleteLogGroup`.
+- `PutRetentionPolicy`, `DeleteRetentionPolicy`.
+- `CreateLogStream`, `DescribeLogStreams`, `DeleteLogStream`.
+- `PutLogEvents`, `GetLogEvents`, `FilterLogEvents` with search pattern filtering.
+- Automatic log group creation from Lambda and ECS runtimes.
+
+**Not implemented**
+
+- Live Tail duplex streaming websocket sessions.
+- Logs Insights SQL aggregation queries.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.

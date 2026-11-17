@@ -70,7 +70,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **AWS Secrets Manager** | ✅ Full console | Secrets list, Store a new secret (Key/value pairs & Plaintext), Retrieve secret value with on-demand decryption, version rotation |
 | **AWS Systems Manager (Parameter Store)** | ✅ Full console | Parameters list, Create parameter (String, StringList, SecureString with KMS), Decrypt on-demand, Version history tracking |
 | **AWS CloudFormation** | ✅ Full console | Stacks list, Create stack (YAML/JSON template editor & presets), Stack detail with live Resources, Events stream, Outputs, and Template inspector |
-| Redshift, DocumentDB, Neptune, Kinesis, CloudWatch Logs | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **CloudWatch Logs** | ✅ Full console | Log groups, Create log group (retention settings), Log streams, live event console viewer with search filtering |
+| Redshift, DocumentDB, Neptune, Kinesis | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -149,6 +150,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>CloudFormation: stacks list</b><br><img src="docs/images/cloudformation-stacks.png" alt="CloudFormation stacks"></td>
 <td><b>CloudFormation: stack resources & outputs</b><br><img src="docs/images/cloudformation-stack-detail.png" alt="CloudFormation stack detail"></td>
+</tr>
+<tr>
+<td><b>CloudWatch Logs: log groups</b><br><img src="docs/images/logs-log-groups.png" alt="CloudWatch Logs log groups"></td>
+<td><b>CloudWatch Logs: log stream events viewer</b><br><img src="docs/images/logs-stream-viewer.png" alt="CloudWatch Logs stream viewer"></td>
 </tr>
 </table>
 

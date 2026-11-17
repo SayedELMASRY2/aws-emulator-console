@@ -30,9 +30,9 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | AWS Secrets Manager | Full | `#/secrets` | `web/src/pages/secrets/` |
 | AWS Systems Manager (Parameter Store) | Full | `#/ssm/parameters` | `web/src/pages/ssm/` |
 | AWS CloudFormation | Full | `#/cloudformation/stacks` | `web/src/pages/cloudformation/` |
+| CloudWatch Logs | Full | `#/logs/log-groups` | `web/src/pages/logs/` |
 | Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| CloudWatch Logs | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -543,6 +543,31 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created stack `ecommerce-infrastructure` with multi-resource template (S3 Bucket + SQS Queue with Outputs).
 - Verified automatic resource resolution, dependency ordering, and status transition (`CREATE_IN_PROGRESS` -> `CREATE_COMPLETE`).
 - Verified physical resource inspection, stack outputs, and template retrieval.
+- Captured screenshots in headless Chrome.
+
+## CloudWatch Logs
+
+**Pages**
+
+- **Log groups:**
+  - Log groups list with name, retention period (Never expire, days, weeks, months), stored bytes, metric filter count, and created at.
+  - Create log group: name, retention policy selector, and KMS key ID.
+  - Log group detail: overview container with ARN and stored bytes, and Log streams table (`DescribeLogStreams`).
+  - Create log stream modal and delete log stream modal.
+  - Edit retention policy modal (`PutRetentionPolicy` / `DeleteRetentionPolicy`).
+  - Delete log group modal with confirmation.
+- **Log stream viewer:**
+  - Interactive terminal log viewer for any log stream.
+  - Live log filtering with search pattern (`FilterLogEvents`).
+  - Timestamped monospace console display with word-wrapping and refresh action.
+- **Unsupported pages:** Live Tail, Logs Insights (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created log group `/aws/lambda/payment-service` with 30-day retention.
+- Created log stream `2026/11/17/[$LATEST]abc1234`.
+- Ingested 5 log events with timestamps and verified retrieval.
+- Verified search filtering with pattern `INFO`.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

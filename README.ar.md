@@ -51,7 +51,8 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **AWS Secrets Manager** | ✅ كونسول كامل: حفظ الأسرار وكلمات المرور (Key/value وPlaintext)، واسترجاع وكشف القيم المشفرة عند الطلب، وإدارة وتحديث إصدارات السر |
 | **AWS Systems Manager (Parameter Store)** | ✅ كونسول كامل: إدارة إعدادات التطبيقات الهرمية (Hierarchical paths)، ودعم أنواع String وStringList وSecureString مع التشفير وفك التشفير اللحظي، وسجل الإصدارات السابقة (Version history) |
 | **AWS CloudFormation** | ✅ كونسول كامل: إدارة الـ Stacks، ومحرر قوالب الـ YAML/JSON، وإنشاء وإدارة الموارد أوتوماتيكياً كبنية تحتية برمجية (IaC)، وتتبع الـ Events والمخرجات (Outputs) |
-| باقي الخدمات (Redshift وDocumentDB وCloudWatch Logs وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **CloudWatch Logs** | ✅ كونسول كامل: مجموعات السجلات (Log groups)، وقنوات السجلات (Log streams)، ومستعرض نصوص السجلات الحي (Terminal viewer) مع فلترة والبحث في الـ Events |
+| باقي الخدمات (Redshift وDocumentDB وNeptune وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 

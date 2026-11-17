@@ -28,8 +28,8 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 18 | AWS Secrets Manager | ✅ | Store new secret (Key/value & Plaintext), retrieve value, update versions |
 | 19 | Parameter Store (SSM) | ✅ | Hierarchical parameters, String/StringList/SecureString, decrypt, history |
 | 20 | AWS CloudFormation | ✅ | Stacks, YAML/JSON template editor, resources, events, outputs, live provisioning |
-| 21 | Other databases: DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS/ElastiCache do |
-| 22 | CloudWatch (Logs, Metrics, Alarms) | ⬜ | Real log stream inspection and metric alarms |
+| 21 | CloudWatch Logs | ✅ | Log groups, log streams, live event viewer, retention policies, search filter |
+| 22 | Other databases: DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS/ElastiCache do |
 | 23 | Kinesis Data Streams | ⬜ | Real-time streaming records |
 
 ## Per-service scope
