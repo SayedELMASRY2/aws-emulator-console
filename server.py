@@ -41,8 +41,8 @@ CLIENT_CONFIG = Config(
     connect_timeout=3,
     read_timeout=60,
     s3={"addressing_style": "path"},
-    signature_version="s3v4",  # presigned URLs must be SigV4 for the emulator
 )
+S3_CLIENT_CONFIG = CLIENT_CONFIG.merge(Config(signature_version="s3v4"))
 
 
 class EmulatorNotRunning(Exception):
@@ -86,8 +86,9 @@ class Clients:
             ca = self._load()
             c = self._clients.get(service)
             if c is None:
+                cfg = S3_CLIENT_CONFIG if service == "s3" else CLIENT_CONFIG
                 c = self._session.client(
-                    service, endpoint_url=EMU_ENDPOINT, verify=ca, config=CLIENT_CONFIG
+                    service, endpoint_url=EMU_ENDPOINT, verify=ca, config=cfg
                 )
                 self._clients[service] = c
             return c

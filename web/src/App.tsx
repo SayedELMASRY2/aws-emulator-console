@@ -20,6 +20,7 @@ import EcrRoutes, { ECR_NAV } from "./pages/ecr/routes";
 import EksRoutes, { EKS_NAV } from "./pages/eks/routes";
 import LambdaRoutes, { LAMBDA_NAV } from "./pages/lambda/routes";
 import AthenaRoutes, { ATHENA_NAV } from "./pages/athena/routes";
+import MskRoutes, { MSK_NAV } from "./pages/msk/routes";
 
 // Pages set their breadcrumbs through this context.
 type Crumb = BreadcrumbGroupProps.Item;
@@ -41,6 +42,7 @@ function sideNavFor(path: string): { header: SideNavigationProps.Header; items: 
   if (path.startsWith("/eks")) return EKS_NAV;
   if (path.startsWith("/lambda")) return LAMBDA_NAV;
   if (path.startsWith("/athena")) return ATHENA_NAV;
+  if (path.startsWith("/msk")) return MSK_NAV;
   return {
     header: { text: "Emulator Console", href: "#/" },
     items: [
@@ -128,6 +130,7 @@ function Shell() {
             <Route path="/eks/*" element={<EksRoutes />} />
             <Route path="/lambda/*" element={<LambdaRoutes />} />
             <Route path="/athena/*" element={<AthenaRoutes />} />
+            <Route path="/msk/*" element={<MskRoutes />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         }

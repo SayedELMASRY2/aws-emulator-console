@@ -20,7 +20,7 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Amazon EKS | Full | `#/eks/clusters` | `web/src/pages/eks/` |
 | AWS Lambda | Full | `#/lambda/functions` | `web/src/pages/lambda/` |
 | Amazon Athena | Full | `#/athena/query-editor` | `web/src/pages/athena/` |
-| MSK (Kafka) | Basic | `/legacy/#/kafka` | `static/pages/kafka.js` |
+| Amazon MSK | Full | `#/msk/clusters` | `web/src/pages/msk/` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
@@ -290,6 +290,31 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Executed ANSI SQL query returning column headers and rows.
 - Created custom workgroup `bi-analysts` with S3 output configuration.
 - Verified query history via `BatchGetQueryExecution`.
+- Captured screenshots in headless Chrome.
+
+## Amazon MSK
+
+**Pages**
+
+- **Clusters:**
+  - Cluster list with cluster name, status, type (Provisioned/Serverless), Kafka version, broker count, instance type, and creation date.
+  - Create cluster: Provisioned or Serverless, Apache Kafka version (3.8.x, 3.7.x KRaft, 3.6.0), broker count, instance types (`kafka.m5.large`, Graviton, etc.), EBS storage per broker, VPC subnets, security groups, and custom configuration association.
+  - Cluster detail: overview with cluster ARN, Kafka version, broker count, and storage.
+  - Bootstrap brokers panel: displays Plaintext and TLS endpoint connection strings with copy buttons.
+  - Detail tabs: Properties & networking (subnets, security groups, Zookeeper connect string), Broker nodes table (`ListNodes`), and Cluster operations history (`ListClusterOperations`).
+  - Delete cluster confirmation modal.
+- **Cluster configurations:**
+  - Configurations list with name, state, latest revision, and compatible Kafka versions.
+  - Create configuration: name, description, and `server.properties` code editor (`auto.create.topics.enable`, `log.retention.hours`, etc.).
+  - View properties modal displaying formatted `server.properties` for any revision.
+  - Delete configuration modal.
+- **Unsupported pages:** MSK Connect (Custom plugins, Connectors, Worker configurations - marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created configuration `analytics-retention` with custom log retention rules.
+- Created cluster `production-streams` with Kafka 3.8.x and 2 broker nodes.
+- Verified `DescribeClusterV2`, `GetBootstrapBrokers`, and `ListNodes`.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

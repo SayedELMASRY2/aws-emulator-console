@@ -224,7 +224,22 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - `ListNamedQueries` returns `501 NotImplemented` (saved queries are managed locally).
 - Federated external data source connectors.
 
+## Amazon MSK
+
+**Works**
+
+- `CreateCluster`, `CreateClusterV2`, `DescribeCluster`, `DescribeClusterV2`, `ListClustersV2`, `DeleteCluster`.
+- Provisioned clusters and Serverless clusters.
+- `GetBootstrapBrokers` returns Plaintext and TLS endpoint connection strings.
+- `ListNodes` returns broker node identifiers, subnets, and IPs.
+- `ListClusterOperations` and `ListClusterOperationsV2`.
+- `CreateConfiguration`, `DescribeConfiguration`, `DescribeConfigurationRevision`, `ListConfigurations`, `DeleteConfiguration`.
+
+**Limits**
+
+- Broker hostnames follow AWS DNS conventions and are not resolvable on a local loopback network. The emulator covers the MSK management APIs.
+- MSK Connect (custom plugins, connectors, worker configurations) is not implemented in the emulator.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.
-- **MSK:** broker hostnames don't resolve.

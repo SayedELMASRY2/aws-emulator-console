@@ -41,7 +41,8 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **Amazon EKS** | ✅ كونسول كامل: كلاسترات Kubernetes 1.31، وأمر الاتصال بـ kubeconfig، وإدارة الـ Managed node groups، وتثبيت الـ Add-ons (مثل VPC CNI وCoreDNS) |
 | **AWS Lambda** | ✅ كونسول كامل: كتابة الدوال، ومحرر كود حي في المتصفح مع Deploy فوري، وتشغيل أحداث الاختبار (Test Events) مع تنفيذ حقيقي وعرض الـ Logs الحية |
 | **Amazon Athena** | ✅ كونسول كامل: محرر استعلامات SQL تفاعلي مربوط بكتالوج Glue، وتنفيذ حقيقي على ملفات S3، وتحميل النتائج CSV، وتاريخ الاستعلامات السابقة، ومجموعات العمل (Workgroups) |
-| باقي الخدمات (MSK وSQS وSNS وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **Amazon MSK** | ✅ كونسول كامل: كلاسترات Apache Kafka المدارة (Provisioned وServerless)، وعناوين الـ Bootstrap brokers، وعقد الـ Brokers، ومحرر إعدادات `server.properties` |
+| باقي الخدمات (SQS وSNS وEventBridge وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 

@@ -60,7 +60,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **Amazon EKS** | ✅ Full console | Kubernetes clusters, Create cluster (K8s 1.31, subnets, public/private API endpoints), kubeconfig generation, Node groups (scaling, capacity, instance types), Add-ons installation |
 | **AWS Lambda** | ✅ Full console | Functions list, Create function (Python & Node.js runtimes), in-browser Code editor with live Deploy, Test event runner with live execution & logs, environment variables |
 | **Amazon Athena** | ✅ Full console | Interactive SQL Query editor with Glue catalog schema browser, live query execution over S3 data, CSV download, Recent queries history, Workgroups |
-| MSK, ElastiCache, Redshift, DocumentDB, Neptune, Kinesis, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **Amazon MSK** | ✅ Full console | Managed Apache Kafka clusters (Provisioned & Serverless), broker nodes, bootstrap brokers endpoints (Plaintext & TLS), and cluster configurations (`server.properties`) |
+| ElastiCache, Redshift, DocumentDB, Neptune, Kinesis, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -103,6 +104,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>Athena: SQL Query editor & data catalog</b><br><img src="docs/images/athena-query-editor.png" alt="Athena query editor"></td>
 <td><b>Athena: query history & execution metrics</b><br><img src="docs/images/athena-recent-queries.png" alt="Athena recent queries"></td>
+</tr>
+<tr>
+<td><b>MSK: Apache Kafka clusters</b><br><img src="docs/images/msk-clusters.png" alt="MSK clusters"></td>
+<td><b>MSK: cluster detail with bootstrap brokers</b><br><img src="docs/images/msk-cluster-detail.png" alt="MSK cluster detail"></td>
 </tr>
 </table>
 
