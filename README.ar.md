@@ -49,6 +49,7 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **Amazon ElastiCache** | ✅ كونسول كامل: كلاسترات Redis وValkey وMemcached، وتشغيل سيرفرات حقيقية على 127.0.0.1 مع أمر اتصال redis-cli، وإدارة الـ Subnet groups وParameter groups |
 | **AWS IAM** | ✅ كونسول كامل: إدارة الصلاحيات، وإنشاء الـ Roles بروابط الثقة (Trust relationships)، ومحرر الـ Policies بالـ JSON، والمستخدمين وتوليد مفاتيح الـ Access Keys |
 | **AWS Secrets Manager** | ✅ كونسول كامل: حفظ الأسرار وكلمات المرور (Key/value وPlaintext)، واسترجاع وكشف القيم المشفرة عند الطلب، وإدارة وتحديث إصدارات السر |
+| **AWS Systems Manager (Parameter Store)** | ✅ كونسول كامل: إدارة إعدادات التطبيقات الهرمية (Hierarchical paths)، ودعم أنواع String وStringList وSecureString مع التشفير وفك التشفير اللحظي، وسجل الإصدارات السابقة (Version history) |
 | باقي الخدمات (Redshift وDocumentDB وCloudFormation وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد

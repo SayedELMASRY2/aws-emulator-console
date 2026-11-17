@@ -28,9 +28,10 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Amazon ElastiCache | Full | `#/elasticache/dashboard` | `web/src/pages/elasticache/` |
 | AWS IAM | Full | `#/iam/dashboard` | `web/src/pages/iam/` |
 | AWS Secrets Manager | Full | `#/secrets` | `web/src/pages/secrets/` |
+| AWS Systems Manager (Parameter Store) | Full | `#/ssm/parameters` | `web/src/pages/ssm/` |
 | Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -496,6 +497,29 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Retrieved and decrypted secret value via `GetSecretValue`.
 - Created new secret version via `PutSecretValue`.
 - Deleted secret immediately.
+- Captured screenshots in headless Chrome.
+
+## AWS Systems Manager (Parameter Store)
+
+**Pages**
+
+- **Parameters:**
+  - Parameters list with hierarchical name (e.g. `/app/env/key`), type badge (`String`, `StringList`, `SecureString`), tier (Standard/Advanced), version, description, and last modified date.
+  - Create parameter: name, description, tier selection, type (String, StringList, SecureString with KMS key ID), and value textarea.
+  - Parameter detail: overview container with metadata, Value container with "Show decrypted value" toggle for encrypted SecureStrings and Copyable value.
+  - History tab (`GetParameterHistory`): list of parameter versions, values, types, and modification timestamps.
+  - Tags tab (`ListTagsForResource`).
+  - Edit parameter: update value creating an incremented revision version in history.
+  - Delete parameter modal with confirmation.
+- **Unsupported pages:** Fleet Manager, Session Manager, Run Command, Patch Manager, Explorer, AppConfig (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created String parameter `/ecommerce/production/database/host`.
+- Created StringList parameter `/ecommerce/production/api/cors_origins`.
+- Created SecureString parameter `/ecommerce/production/payment/stripe_api_key`.
+- Tested `GetParameter` with and without decryption (`WithDecryption=True`).
+- Verified version history creation and `GetParameterHistory`.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

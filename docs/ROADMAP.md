@@ -26,8 +26,8 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 16 | Amazon ElastiCache | ✅ | Redis/Valkey/Memcached clusters, local sockets, subnet & parameter groups |
 | 17 | AWS IAM | ✅ | Users, access keys, roles, trust policies, customer managed policies |
 | 18 | AWS Secrets Manager | ✅ | Store new secret (Key/value & Plaintext), retrieve value, update versions |
-| 19 | Other databases: DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS/ElastiCache do |
-| 20 | Parameter Store (SSM) & KMS | ⬜ | Parameter hierarchy and encryption keys |
+| 19 | Parameter Store (SSM) | ✅ | Hierarchical parameters, String/StringList/SecureString, decrypt, history |
+| 20 | Other databases: DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS/ElastiCache do |
 | 21 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
 | 22 | Kinesis Data Streams | ⬜ | Real-time streaming records |
 

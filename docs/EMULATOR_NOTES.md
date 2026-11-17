@@ -350,6 +350,22 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 
 - Pre-packaged CloudFormation rotation templates for external databases.
 
+## AWS Systems Manager (Parameter Store)
+
+**Works**
+
+- `PutParameter`, `GetParameter`, `GetParameters`, `GetParametersByPath`, `DeleteParameter`, `DeleteParameters`.
+- `DescribeParameters` with metadata and tagging support (`ListTagsForResource`).
+- `GetParameterHistory` provides version history tracking.
+- Types: `String`, `StringList`, and `SecureString`.
+- `WithDecryption` flag cleanly decrypts `SecureString` values in-memory.
+- Full support for hierarchical paths (e.g. `/app/production/database/host`).
+
+**Not implemented**
+
+- Node management (Run Command, Session Manager, Patch Manager, Fleet Manager).
+- Systems Manager Explorer and AppConfig.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.
