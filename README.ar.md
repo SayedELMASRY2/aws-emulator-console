@@ -44,7 +44,9 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **Amazon MSK** | ✅ كونسول كامل: كلاسترات Apache Kafka المدارة (Provisioned وServerless)، وعناوين الـ Bootstrap brokers، وعقد الـ Brokers، ومحرر إعدادات `server.properties` |
 | **Amazon SQS** | ✅ كونسول كامل: طوابير الرسائل (Standard وFIFO)، ومختبر إرسال واستقبال الرسائل الحي (Send and receive messages)، والـ Long polling، وحذف وتنظيف الطوابير |
 | **Amazon SNS** | ✅ كونسول كامل: قنوات الإشعارات (Topics)، ونشر الرسائل الحية (Publish message)، وإدارة الاشتراكات عبر البروتوكولات المختلفة (Email، وSQS، وLambda، وHTTP) |
-| باقي الخدمات (EventBridge وStep Functions وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **Amazon EventBridge** | ✅ كونسول كامل: قواعد توجيه الأحداث (Rules)، ومسارات الأحداث (Event buses)، وإرسال أحداث مخصصة حية (Send events) واختبار مطابقة الأنماط |
+| **AWS Step Functions** | ✅ كونسول كامل: مسارات العمل التفاعلية (State machines)، ومحرر لغة ASL، وتشغيل ومتابعة التنفيذ المباشر مع استعراض شجرة الـ Event history |
+| باقي الخدمات (ElastiCache وRedshift وDocumentDB وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 

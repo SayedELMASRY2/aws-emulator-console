@@ -21,9 +21,12 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 11 | Amazon MSK | ✅ | Clusters, bootstrap brokers, broker nodes, cluster configurations |
 | 12 | Amazon SQS | ✅ | Queues (Standard & FIFO), Send/receive messages runner, purge, dead-letter |
 | 13 | Amazon SNS | ✅ | Topics, publish messages, subscriptions (email, SQS, lambda, http) |
-| 14 | EventBridge & Step Functions | 🔜 | Event bus, rules, state machines visual graph |
-| 15 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
-| 16 | Kinesis, Firehose and others the emulator supports | ⬜ | Check `GET /api/meta/services` and probe |
+| 14 | Amazon EventBridge | ✅ | Event buses, rules, event pattern routing, PutEvents dispatcher |
+| 15 | AWS Step Functions | ✅ | State machines, ASL definition editor, live execution runner, event history |
+| 16 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | 🔜 | Probe which ones run real endpoints, as RDS does |
+| 17 | IAM, Secrets Manager, Parameter Store, KMS | ⬜ | IAM matters because the emulator enforces it |
+| 18 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |
+| 19 | Kinesis Data Streams | ⬜ | Real-time streaming records |
 
 ## Per-service scope
 

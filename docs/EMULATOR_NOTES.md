@@ -268,6 +268,34 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Push notifications to mobile devices (Apple APNs / Google FCM).
 - Direct carrier SMS origination.
 
+## Amazon EventBridge
+
+**Works**
+
+- `ListEventBuses`, `CreateEventBus`, `DeleteEventBus`.
+- `ListRules`, `DescribeRule`, `PutRule`, `DeleteRule`, `EnableRule`, `DisableRule`.
+- `PutTargets`, `ListTargetsByRule`, `RemoveTargets`.
+- `PutEvents` (dispatches real custom events that trigger matching rules).
+
+**Not implemented**
+
+- EventBridge Pipes.
+- API destinations.
+
+## AWS Step Functions
+
+**Works**
+
+- `CreateStateMachine`, `DescribeStateMachine`, `ListStateMachines`, `DeleteStateMachine`.
+- `StartExecution`, `DescribeExecution`, `ListExecutions`, `StopExecution`.
+- `GetExecutionHistory` tracks real execution event progression (states entered, states exited, outputs).
+- Standard and Express state machines.
+- States: Pass, Task, Choice, Wait, Parallel, Succeed, Fail.
+
+**Not implemented**
+
+- Activities (polling external workers).
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.

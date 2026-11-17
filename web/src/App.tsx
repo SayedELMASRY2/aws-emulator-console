@@ -23,6 +23,8 @@ import AthenaRoutes, { ATHENA_NAV } from "./pages/athena/routes";
 import MskRoutes, { MSK_NAV } from "./pages/msk/routes";
 import SqsRoutes, { SQS_NAV } from "./pages/sqs/routes";
 import SnsRoutes, { SNS_NAV } from "./pages/sns/routes";
+import EventBridgeRoutes, { EVENTS_NAV } from "./pages/events/routes";
+import StepFunctionsRoutes, { SFN_NAV } from "./pages/stepfunctions/routes";
 
 // Pages set their breadcrumbs through this context.
 type Crumb = BreadcrumbGroupProps.Item;
@@ -47,6 +49,8 @@ function sideNavFor(path: string): { header: SideNavigationProps.Header; items: 
   if (path.startsWith("/msk")) return MSK_NAV;
   if (path.startsWith("/sqs")) return SQS_NAV;
   if (path.startsWith("/sns")) return SNS_NAV;
+  if (path.startsWith("/events")) return EVENTS_NAV;
+  if (path.startsWith("/stepfunctions")) return SFN_NAV;
   return {
     header: { text: "Emulator Console", href: "#/" },
     items: [
@@ -137,6 +141,8 @@ function Shell() {
             <Route path="/msk/*" element={<MskRoutes />} />
             <Route path="/sqs/*" element={<SqsRoutes />} />
             <Route path="/sns/*" element={<SnsRoutes />} />
+            <Route path="/events/*" element={<EventBridgeRoutes />} />
+            <Route path="/stepfunctions/*" element={<StepFunctionsRoutes />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         }

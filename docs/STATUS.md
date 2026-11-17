@@ -23,9 +23,11 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Amazon MSK | Full | `#/msk/clusters` | `web/src/pages/msk/` |
 | Amazon SQS | Full | `#/sqs/queues` | `web/src/pages/sqs/` |
 | Amazon SNS | Full | `#/sns/topics` | `web/src/pages/sns/` |
+| Amazon EventBridge | Full | `#/events/rules` | `web/src/pages/events/` |
+| AWS Step Functions | Full | `#/stepfunctions/state-machines` | `web/src/pages/stepfunctions/` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -361,6 +363,52 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created email subscription to topic.
 - Published message with subject and JSON payload.
 - Verified subscription listing and topic deletion.
+- Captured screenshots in headless Chrome.
+
+## Amazon EventBridge
+
+**Pages**
+
+- **Rules:**
+  - Rules list filtered by event bus (`default` or custom buses).
+  - Create rule: name, event bus, rule type (Event pattern or Schedule rate/cron), event pattern JSON editor, target ARN.
+  - Enable and disable rule actions in place.
+  - Delete rule modal with confirmation.
+- **Event buses:**
+  - Event buses list with Name and ARN.
+  - Create custom event bus modal.
+  - Delete event bus action (disabled for default bus).
+- **Send events:**
+  - Interactive custom event dispatcher: Event bus selector, Source, Detail type, and JSON payload editor.
+  - Live dispatch via `PutEvents` with Event ID confirmation.
+- **Unsupported pages:** Pipes, API destinations (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created rule `payment-pipeline` on default bus.
+- Dispatched custom event and verified successful event ID receipt.
+- Captured screenshots in headless Chrome.
+
+## AWS Step Functions
+
+**Pages**
+
+- **State machines:**
+  - State machines list with name, type (Standard/Express), ARN with copy button, and creation date.
+  - Create state machine: name, type, IAM role, Amazon States Language (ASL) definition editor with starter templates.
+  - State machine detail: overview with ARN and role, executions table, and formatted ASL definition viewer.
+  - Delete state machine modal.
+- **Executions:**
+  - Start execution modal with custom input JSON.
+  - Execution detail: status (`Succeeded`, `Running`, `Failed`), started/stopped timestamps, formatted input and output JSON.
+  - Execution event history table (`GetExecutionHistory`): ID, Event type (`ExecutionStarted`, `PassStateEntered`, etc.), timestamp, and step detail payloads.
+- **Unsupported pages:** Activities (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created state machine `order-orchestration` with Pass state pipeline.
+- Started execution `exec-live-1` with input JSON.
+- Verified execution success, state transitions, output payload, and event history graph.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services
