@@ -29,6 +29,7 @@ import ElastiCacheRoutes, { ELASTICACHE_NAV } from "./pages/elasticache/routes";
 import IamRoutes, { IAM_NAV } from "./pages/iam/routes";
 import SecretsRoutes, { SECRETS_NAV } from "./pages/secrets/routes";
 import SsmRoutes, { SSM_NAV } from "./pages/ssm/routes";
+import CloudFormationRoutes, { CFN_NAV } from "./pages/cloudformation/routes";
 
 // Pages set their breadcrumbs through this context.
 type Crumb = BreadcrumbGroupProps.Item;
@@ -59,6 +60,7 @@ function sideNavFor(path: string): { header: SideNavigationProps.Header; items: 
   if (path.startsWith("/iam")) return IAM_NAV;
   if (path.startsWith("/secrets")) return SECRETS_NAV;
   if (path.startsWith("/ssm")) return SSM_NAV;
+  if (path.startsWith("/cloudformation")) return CFN_NAV;
   return {
     header: { text: "Emulator Console", href: "#/" },
     items: [
@@ -155,6 +157,7 @@ function Shell() {
             <Route path="/iam/*" element={<IamRoutes />} />
             <Route path="/secrets/*" element={<SecretsRoutes />} />
             <Route path="/ssm/*" element={<SsmRoutes />} />
+            <Route path="/cloudformation/*" element={<CloudFormationRoutes />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         }

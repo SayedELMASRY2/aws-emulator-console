@@ -29,9 +29,10 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | AWS IAM | Full | `#/iam/dashboard` | `web/src/pages/iam/` |
 | AWS Secrets Manager | Full | `#/secrets` | `web/src/pages/secrets/` |
 | AWS Systems Manager (Parameter Store) | Full | `#/ssm/parameters` | `web/src/pages/ssm/` |
+| AWS CloudFormation | Full | `#/cloudformation/stacks` | `web/src/pages/cloudformation/` |
 | Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
 | Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
-| CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| CloudWatch Logs | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
 ## S3
@@ -520,6 +521,28 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Created SecureString parameter `/ecommerce/production/payment/stripe_api_key`.
 - Tested `GetParameter` with and without decryption (`WithDecryption=True`).
 - Verified version history creation and `GetParameterHistory`.
+- Captured screenshots in headless Chrome.
+
+## AWS CloudFormation
+
+**Pages**
+
+- **Stacks:**
+  - Stacks list with stack name, status badge (`Create Complete`, `In Progress`, `Failed`), description, created time, and updated time.
+  - Create stack wizard: stack name, template presets (S3+SQS, DynamoDB table, custom template), YAML/JSON template code editor, and `CAPABILITY_IAM` acknowledgment checkbox.
+  - Stack detail: overview container with Stack ID copy, and multi-tab interface:
+    - **Resources tab (`DescribeStackResources`):** Logical ID, Physical ID with copy button, Resource Type, and Resource status.
+    - **Events tab (`DescribeStackEvents`):** timestamp, logical ID, resource status, type, and status reason.
+    - **Outputs tab:** Output keys, values with copy buttons, and descriptions.
+    - **Template tab (`GetTemplate`):** full read-only template document viewer.
+  - Delete stack modal with confirmation.
+- **Unsupported pages:** StackSets, Public extensions, Activated extensions (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Created stack `ecommerce-infrastructure` with multi-resource template (S3 Bucket + SQS Queue with Outputs).
+- Verified automatic resource resolution, dependency ordering, and status transition (`CREATE_IN_PROGRESS` -> `CREATE_COMPLETE`).
+- Verified physical resource inspection, stack outputs, and template retrieval.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

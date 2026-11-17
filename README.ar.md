@@ -50,7 +50,8 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 | **AWS IAM** | ✅ كونسول كامل: إدارة الصلاحيات، وإنشاء الـ Roles بروابط الثقة (Trust relationships)، ومحرر الـ Policies بالـ JSON، والمستخدمين وتوليد مفاتيح الـ Access Keys |
 | **AWS Secrets Manager** | ✅ كونسول كامل: حفظ الأسرار وكلمات المرور (Key/value وPlaintext)، واسترجاع وكشف القيم المشفرة عند الطلب، وإدارة وتحديث إصدارات السر |
 | **AWS Systems Manager (Parameter Store)** | ✅ كونسول كامل: إدارة إعدادات التطبيقات الهرمية (Hierarchical paths)، ودعم أنواع String وStringList وSecureString مع التشفير وفك التشفير اللحظي، وسجل الإصدارات السابقة (Version history) |
-| باقي الخدمات (Redshift وDocumentDB وCloudFormation وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
+| **AWS CloudFormation** | ✅ كونسول كامل: إدارة الـ Stacks، ومحرر قوالب الـ YAML/JSON، وإنشاء وإدارة الموارد أوتوماتيكياً كبنية تحتية برمجية (IaC)، وتتبع الـ Events والمخرجات (Outputs) |
+| باقي الخدمات (Redshift وDocumentDB وCloudWatch Logs وغيرهم) | صفحات أساسية، بتتنقل للكونسول الكامل واحدة واحدة |
 
 ## حاجات بتشتغل بجد
 
@@ -61,6 +62,7 @@ AWS Emulator بيشغّل خدمات AWS على جهازك، بس من غير أ
 - **Athena:** بيشغّل SQL على البيانات.
 - **Lambda:** بتشغّل الكود.
 - **Load balancers:** بترد على HTTP على جهازك.
+- **CloudFormation:** بينفذ قوالب الـ IaC وينشئ موارد حقيقية في الإيميوليتور (S3 وDynamoDB وSQS وLambda وIAM) بترتيب الاعتماديات.
 
 التفاصيل الكاملة في [docs/EMULATOR_NOTES.md](docs/EMULATOR_NOTES.md).
 

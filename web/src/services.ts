@@ -28,7 +28,7 @@ export const SERVICES: Service[] = [
   { id: "iam", name: "IAM", group: "Security, Identity & Compliance", href: "#/iam/dashboard", description: "Manage access to AWS resources and identities" },
   { id: "secrets", name: "Secrets Manager", group: "Security, Identity & Compliance", href: "#/secrets", description: "Rotate, manage, and retrieve database credentials and API keys" },
   { id: "ssm", name: "Parameter Store", group: "Management & Governance", href: "#/ssm/parameters", description: "Secure, hierarchical storage for configuration data and secrets management" },
+  { id: "cfn", name: "CloudFormation", group: "Management & Governance", href: "#/cloudformation/stacks", description: "Speed up cloud provisioning with infrastructure as code" },
   L("logs", "CloudWatch Logs", "Management & Governance", "/logs", "Log groups and events"),
-  L("cfn", "CloudFormation", "Management & Governance", "/cloudformation", "Infrastructure as code"),
   L("explorer", "API Explorer", "Tools", "/explorer", "Call any operation of any service"),
 ];

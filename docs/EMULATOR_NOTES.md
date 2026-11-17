@@ -366,6 +366,22 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Node management (Run Command, Session Manager, Patch Manager, Fleet Manager).
 - Systems Manager Explorer and AppConfig.
 
+## AWS CloudFormation
+
+**Works**
+
+- `CreateStack`, `DescribeStacks`, `ListStacks`, `DeleteStack`.
+- `DescribeStackResources`, `DescribeStackEvents`, `GetTemplate`.
+- `TemplateBody` parsing (JSON and YAML).
+- Real resource provisioning: S3 Buckets, SQS Queues, DynamoDB Tables, Lambda Functions, and IAM Roles.
+- Dependency graph ordering and output parameter resolution (`!Ref`, `!Sub`).
+- Stack state transitions: `CREATE_IN_PROGRESS` -> `CREATE_COMPLETE` / `CREATE_FAILED`.
+
+**Not implemented**
+
+- CloudFormation StackSets.
+- Public extension registry modules.
+
 ## Other services (found while building the basic pages)
 
 - **ECS:** pulls real container images, which needs internet access.

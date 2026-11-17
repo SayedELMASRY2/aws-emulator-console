@@ -69,7 +69,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **AWS IAM** | ✅ Full console | Roles with service trust wizard & policy attachment, Customer managed policies with JSON editor & presets, Users with access key generation, User groups |
 | **AWS Secrets Manager** | ✅ Full console | Secrets list, Store a new secret (Key/value pairs & Plaintext), Retrieve secret value with on-demand decryption, version rotation |
 | **AWS Systems Manager (Parameter Store)** | ✅ Full console | Parameters list, Create parameter (String, StringList, SecureString with KMS), Decrypt on-demand, Version history tracking |
-| Redshift, DocumentDB, Neptune, Kinesis, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **AWS CloudFormation** | ✅ Full console | Stacks list, Create stack (YAML/JSON template editor & presets), Stack detail with live Resources, Events stream, Outputs, and Template inspector |
+| Redshift, DocumentDB, Neptune, Kinesis, CloudWatch Logs | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -145,6 +146,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <td><b>Parameter Store: parameters list</b><br><img src="docs/images/ssm-parameters.png" alt="Parameter Store list"></td>
 <td><b>Parameter Store: parameter detail & history</b><br><img src="docs/images/ssm-parameter-detail.png" alt="Parameter Store detail"></td>
 </tr>
+<tr>
+<td><b>CloudFormation: stacks list</b><br><img src="docs/images/cloudformation-stacks.png" alt="CloudFormation stacks"></td>
+<td><b>CloudFormation: stack resources & outputs</b><br><img src="docs/images/cloudformation-stack-detail.png" alt="CloudFormation stack detail"></td>
+</tr>
 </table>
 
 ## What runs for real
@@ -161,6 +166,7 @@ The emulator does more than store API calls. These things actually happen:
 | Lambda | Executes your function code. |
 | Load balancers | ALBs listen on `127.0.0.1:<port>` and answer HTTP. |
 | DynamoDB and RDS exports | Write real files to S3. |
+| CloudFormation | Executes templates and provisions real local emulator resources (S3, SQS, DynamoDB, Lambda, IAM) in dependency order. |
 
 The full list of what works, what isn't implemented and the known emulator bugs is in [docs/EMULATOR_NOTES.md](docs/EMULATOR_NOTES.md).
 
