@@ -19,9 +19,10 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 | Amazon ECR | Full | `#/ecr/repositories` | `web/src/pages/ecr/` |
 | Amazon EKS | Full | `#/eks/clusters` | `web/src/pages/eks/` |
 | AWS Lambda | Full | `#/lambda/functions` | `web/src/pages/lambda/` |
+| Amazon Athena | Full | `#/athena/query-editor` | `web/src/pages/athena/` |
 | MSK (Kafka) | Basic | `/legacy/#/kafka` | `static/pages/kafka.js` |
 | ElastiCache, Redshift, DocumentDB, Neptune | Basic | `/legacy/#/...` | `static/pages/databases.js` |
-| Athena, Kinesis | Basic | `/legacy/#/...` | `static/pages/extras.js` |
+| Kinesis Data Streams | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic | `/legacy/#/...` | `static/pages/extras.js` |
 | API Explorer (any operation of any service) | Tool | `/legacy/#/explorer` | `static/pages/explorer.js` |
 
@@ -258,6 +259,37 @@ Last updated: 2026-11-16. Emulator version tested: **1.0.385** (2026.11.14).
 - Verified function state transition from `Pending` to `Active`.
 - Deployed code and verified in-memory execution.
 - Invoked function with test event and verified live JSON payload response (`200 OK`).
+- Captured screenshots in headless Chrome.
+
+## Amazon Athena
+
+**Pages**
+
+- **Query editor:**
+  - Split data/editor view with AwsDataCatalog integration and Glue database selector.
+  - Interactive table schema browser showing table names, columns, and data types, with instant `SELECT * LIMIT 10` table preview button.
+  - SQL editor with Run (Ctrl+Enter), Clear, and Save as query.
+  - Live query results viewer: state indicator, execution runtime, data scanned, dynamic table headers and row rendering.
+  - CSV export download button.
+  - StateChangeReason error reporting for syntax and execution failures.
+- **Recent queries:**
+  - Query execution history loaded via `ListQueryExecutions` and `BatchGetQueryExecution`.
+  - Columns: query string, status, database, run time, submitted date, and query execution ID with copy button.
+  - "Open in Query editor" action.
+- **Saved queries:**
+  - Saved query manager with local persistence, database tags, and instant load into Query editor.
+- **Workgroups:**
+  - Workgroups table with name, state, description, and effective engine version.
+  - Create workgroup: name, description, and custom S3 query result output location.
+  - Delete workgroup modal.
+- **Unsupported pages:** Data sources (marked n/a with emulator reasons).
+
+**Tested:**
+
+- Queried `SHOW DATABASES` through Glue catalog integration.
+- Executed ANSI SQL query returning column headers and rows.
+- Created custom workgroup `bi-analysts` with S3 output configuration.
+- Verified query history via `BatchGetQueryExecution`.
 - Captured screenshots in headless Chrome.
 
 ## Known gaps in the full-console services

@@ -14,7 +14,7 @@ export const SERVICES: Service[] = [
   L("neptune", "Neptune", "Database", "/neptune", "Graph database"),
   { id: "glue", name: "AWS Glue", group: "Analytics", href: "#/glue/getting-started", description: "Data integration and ETL" },
   L("kafka", "MSK (Kafka)", "Analytics", "/kafka", "Managed Apache Kafka"),
-  L("athena", "Athena", "Analytics", "/athena", "Query data in S3 with SQL"),
+  { id: "athena", name: "Athena", group: "Analytics", href: "#/athena/query-editor", description: "Interactive SQL query service to analyze data in S3" },
   L("kinesis", "Kinesis Data Streams", "Analytics", "/kinesis", "Real-time data streams"),
   { id: "ec2", name: "EC2", group: "Compute", href: "#/ec2/dashboard", description: "Virtual servers in the cloud" },
   { id: "lambda", name: "Lambda", group: "Compute", href: "#/lambda/functions", description: "Run code without thinking about servers or clusters" },

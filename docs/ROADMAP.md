@@ -17,9 +17,9 @@ Status key: ✅ done · 🔜 next · ⬜ planned
 | 7 | Amazon ECR | ✅ | Repositories, push commands, images, lifecycle policies |
 | 8 | Amazon EKS | ✅ | Kubernetes clusters, node groups, add-ons |
 | 9 | AWS Lambda | ✅ | Functions, in-browser code editor & Deploy, Test events with live execution |
-| 10 | Amazon MSK (Kafka) | 🔜 | Broker hostnames don't resolve, so check what can be shown |
-| 11 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
-| 12 | Athena | ⬜ | SQL runs for real, so build a query editor with the catalog tree |
+| 10 | Amazon Athena | ✅ | Query editor, catalog tree & table schema preview, query history, workgroups |
+| 11 | Amazon MSK (Kafka) | 🔜 | Broker hostnames don't resolve, so check what can be shown |
+| 12 | Other databases: ElastiCache, MemoryDB, DocumentDB, Neptune, Redshift | ⬜ | Probe which ones run real endpoints, as RDS does |
 | 13 | SQS, SNS, EventBridge, Step Functions | ⬜ | Send/receive message pages, rules, state machine graph |
 | 14 | IAM, Secrets Manager, Parameter Store, KMS | ⬜ | IAM matters because the emulator enforces it |
 | 15 | CloudWatch (Logs, Metrics, Alarms) and CloudFormation | ⬜ | |

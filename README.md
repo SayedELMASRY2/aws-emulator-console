@@ -59,7 +59,8 @@ The UI is built with [Cloudscape](https://cloudscape.design), the open-source de
 | **Amazon ECR** | ✅ Full console | Repositories, Create repository (tag immutability, scan on push, encryption), View push commands, Images table, Lifecycle policy editor with presets |
 | **Amazon EKS** | ✅ Full console | Kubernetes clusters, Create cluster (K8s 1.31, subnets, public/private API endpoints), kubeconfig generation, Node groups (scaling, capacity, instance types), Add-ons installation |
 | **AWS Lambda** | ✅ Full console | Functions list, Create function (Python & Node.js runtimes), in-browser Code editor with live Deploy, Test event runner with live execution & logs, environment variables |
-| MSK, ElastiCache, Redshift, DocumentDB, Neptune, Athena, Kinesis, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
+| **Amazon Athena** | ✅ Full console | Interactive SQL Query editor with Glue catalog schema browser, live query execution over S3 data, CSV download, Recent queries history, Workgroups |
+| MSK, ElastiCache, Redshift, DocumentDB, Neptune, Kinesis, SQS, SNS, EventBridge, Step Functions, IAM, Secrets Manager, Parameter Store, CloudWatch Logs, CloudFormation | Basic pages | List, create and inspect the main resources. These are being moved to full console pages one by one; see the [roadmap](docs/ROADMAP.md). |
 | **API Explorer** | Tool | Call any operation of any service. The input JSON starts from the operation's shape. |
 
 Every page is wired to the emulator. Create a database in the console and `aws rds describe-db-instances` shows it.
@@ -98,6 +99,10 @@ Every page is wired to the emulator. Create a database in the console and `aws r
 <tr>
 <td><b>Lambda: functions list</b><br><img src="docs/images/lambda-functions.png" alt="Lambda functions"></td>
 <td><b>Lambda: code editor & test events</b><br><img src="docs/images/lambda-function-detail.png" alt="Lambda function detail"></td>
+</tr>
+<tr>
+<td><b>Athena: SQL Query editor & data catalog</b><br><img src="docs/images/athena-query-editor.png" alt="Athena query editor"></td>
+<td><b>Athena: query history & execution metrics</b><br><img src="docs/images/athena-recent-queries.png" alt="Athena recent queries"></td>
 </tr>
 </table>
 

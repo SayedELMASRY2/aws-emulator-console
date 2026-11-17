@@ -204,8 +204,27 @@ Behavior of the AWS Emulator (v1.0.385) found while building this console. Probe
 - Code Signing configurations.
 - Serverless Application Repository.
 
+## Amazon Athena
+
+**Works**
+
+- `StartQueryExecution`, `GetQueryExecution`, `GetQueryResults`, `StopQueryExecution`.
+- Real SQL query execution engine over S3 and Glue Data Catalog tables.
+- Query states: `QUEUED` -> `RUNNING` -> `SUCCEEDED` / `FAILED`.
+- Full ANSI SQL syntax: string literals use single quotes (`'text'`), column aliases use double quotes (`"col"`).
+- `ListWorkGroups`, `GetWorkGroup`, `CreateWorkGroup`, `DeleteWorkGroup`.
+- `ListQueryExecutions` and `BatchGetQueryExecution`.
+
+**Real work**
+
+- Queries actually run against local S3 objects and Glue catalog schemas, producing real result row sets.
+
+**Not implemented**
+
+- `ListNamedQueries` returns `501 NotImplemented` (saved queries are managed locally).
+- Federated external data source connectors.
+
 ## Other services (found while building the basic pages)
 
-- **Athena:** runs SQL over S3 data and catalog tables.
 - **ECS:** pulls real container images, which needs internet access.
 - **MSK:** broker hostnames don't resolve.
